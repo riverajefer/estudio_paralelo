@@ -97,6 +97,7 @@ class AuthController extends Controller {
         $data = [
             'first_name'    => $input['first_name'],
             'last_name'     => $input['last_name'],
+            'tel'           => $input['tel'],
             'email'         => $input['email'],
             'password'      => $input['password']
         ];

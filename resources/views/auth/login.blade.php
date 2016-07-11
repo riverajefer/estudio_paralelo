@@ -1,27 +1,26 @@
 @extends('layouts.main')
 
 @section('head')
-    {!! HTML::style('/assets/css/signin.css') !!}
-    {!! HTML::style('/assets/css/parsley.css') !!}
+    {!! HTML::style('css/signin.css') !!}
+    {!! HTML::style('css/parsley.css') !!}
 @stop
 
 @section('content')
-
 
         {!! Form::open(['url' => route('auth.login-post'), 'class' => 'form-signin', 'data-parsley-validate' ] ) !!}
 
 
         @include('includes.status')
 
-        <h2 class="form-signin-heading">Please sign in</h2>
+        <h2 class="form-signin-heading">Ingresar</h2>
 
-        <label for="inputEmail" class="sr-only">Email address</label>
+        <label for="inputEmail" class="sr-only">Email</label>
         {!! Form::email('email', null, [
             'class'                         => 'form-control',
-            'placeholder'                   => 'Email address',
+            'placeholder'                   => 'Email',
             'required',
             'id'                            => 'inputEmail',
-            'data-parsley-required-message' => 'Email is required',
+            'data-parsley-required-message' => 'El email es requerido',
             'data-parsley-trigger'          => 'change focusout',
             'data-parsley-type'             => 'email'
         ]) !!}
@@ -29,10 +28,10 @@
         <label for="inputPassword" class="sr-only">Password</label>
         {!! Form::password('password', [
             'class'                         => 'form-control',
-            'placeholder'                   => 'Password',
+            'placeholder'                   => 'Contraseña',
             'required',
             'id'                            => 'inputPassword',
-            'data-parsley-required-message' => 'Password is required',
+            'data-parsley-required-message' => 'La contraseña es requerida',
             'data-parsley-trigger'          => 'change focusout',
             'data-parsley-minlength'        => '6',
             'data-parsley-maxlength'        => '20'
@@ -40,19 +39,21 @@
 
         <div class="checkbox">
             <label>
-                {!! Form::checkbox('remember', 1) !!} Remember me
-
+                {!! Form::checkbox('remember', 1) !!} Recordarme
             </label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block login-btn" type="submit">Sign in</button>
-        <p><a href="{{ route('auth.password') }}">Forgot password?</a></p>
+        <button class="btn btn-lg btn-primary btn-block login-btn" type="submit">
+            Ingresar
+        </button>
+        <p><a href="{{ route('auth.password') }}">Olvide mi contraseña</a></p>
 
-        <p class="or-social">Or Use Social Login</p>
+        <p class="or-social">Ó</p>
 
-        <a href="{{ route('social.redirect', ['provider' => 'facebook']) }}" class="btn btn-lg btn-primary btn-block facebook" type="submit">Facebook</a>
-        <a href="{{ route('social.redirect', ['provider' => 'twitter']) }}" class="btn btn-lg btn-primary btn-block twitter" type="submit">Twitter</a>
-        <a href="{{ route('social.redirect', ['provider' => 'google']) }}" class="btn btn-lg btn-primary btn-block google" type="submit">Google</a>
+        <a href="{{ route('social.redirect', ['provider' => 'facebook']) }}" class="btn btn-lg btn-primary btn-block facebook" type="submit">Ingresar con Facebook</a>
 
+        <a href="{{ route('auth.register') }}" class="enlace_rl">
+            <p>REGISTRARME</p>
+        </a>
         {!! Form::close() !!}
 
 @stop

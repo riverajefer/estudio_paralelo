@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('head')
-    {!! HTML::style('/assets/css/reset.css') !!}
+    {!! HTML::style('css/reset.css') !!}
 @stop
 
 @section('content')
@@ -10,12 +10,12 @@
 
         @include('includes.status')
 
-        <h2 class="form-signin-heading">Password Reset</h2>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        {!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'Email address', 'required', 'autofocus', 'id' => 'inputEmail' ]) !!}
+        <h2 class="form-signin-heading">Restablecer contraseña</h2>
+        <label for="inputEmail" class="sr-only">Email</label>
+        {!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'Email', 'required', 'autofocus', 'id' => 'inputEmail' ]) !!}
 
         <br />
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Send me a reset link</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Envíame un enlace de restablecimiento</button>
 
         {!! Form::close() !!}
 

@@ -22,6 +22,7 @@ class UserRepository {
         $user->email            = $data['email'];
         $user->first_name       = ucfirst($data['first_name']);
         $user->last_name        = ucfirst($data['last_name']);
+        $user->tel              = $data['tel'];
         $user->password         = Hash::make($data['password']);
         $user->save();
 
