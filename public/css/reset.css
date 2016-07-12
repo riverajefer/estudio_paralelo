@@ -15,3 +15,8 @@
 .form-signin .form-control:focus {
     z-index: 2;
 }
+.reset-btn{
+    background-color: #000;
+    margin-top:10px;
+    border-radius: 0px;
+}

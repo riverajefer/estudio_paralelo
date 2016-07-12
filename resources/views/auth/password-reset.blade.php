@@ -15,7 +15,7 @@
         {!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'Email', 'required', 'autofocus', 'id' => 'inputEmail' ]) !!}
 
         <br />
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Envíame un enlace de restablecimiento</button>
+        <button class="btn btn-lg btn-primary btn-block reset-btn" type="submit">Envíame un enlace de restablecimiento</button>
 
         {!! Form::close() !!}
 

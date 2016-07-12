@@ -12,7 +12,7 @@
 
         @include('includes.status')
 
-        <h2 class="form-signin-heading">Ingresar</h2>
+        <h2 class="form-signin-heading">Acceder</h2>
 
         <label for="inputEmail" class="sr-only">Email</label>
         {!! Form::email('email', null, [

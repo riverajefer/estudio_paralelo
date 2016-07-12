@@ -5,5 +5,8 @@
 @stop
 
 @section('content')
-    <h2>Ordinary User Panel Home Page</h2>
+	<div align="center">
+	    <h1>Innen + haus</h1>
+	    <h2>Panel de usuario</h2>
+	</div>
 @stop

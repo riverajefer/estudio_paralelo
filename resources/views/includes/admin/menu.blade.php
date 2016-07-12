@@ -18,7 +18,7 @@
                 <li><a href="{{ route('auth.login') }}">Login</a></li>
                 <li><a href="{{ route('auth.register') }}">Register</a></li>
                 @else
-                <li><a href="#">{{ Auth::user()->first_name }}</a></li>
+                <li><a href="#"><b>{{ strtoupper(Auth::user()->first_name) }}</b></a></li>
                 <li><a href="{{ route('authenticated.logout') }}">Logout</a></li>
                 @endif
             </ul>

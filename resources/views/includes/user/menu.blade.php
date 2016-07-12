@@ -11,16 +11,19 @@
             <a class="navbar-brand" href="#">Menú User</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="{{ route('public.home')  }}">Home</a></li>
-            </ul>
             <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><b>ACERCA</b></a></li>
+                <li><a href="#"><b>NOSOTROS</b></a></li>
+                <li><a href="#"><b>PROYECTOS</b></a></li>
+                <li><a href="#"><b>REGALA UN PAQUETE</b></a></li>
+                <li><a href="#"><b>MI LISTA</b></a></li>
+                
                 @if(!Auth::check())
-                <li><a href="{{ route('auth.login') }}">Login</a></li>
-                <li><a href="{{ route('auth.register') }}">Register</a></li>
+                    <li><a href="{{ route('auth.login') }}"><b>ACCEDER</b></a></li>
+                    <li><a href="{{ route('auth.register') }}"><b>REGISTRARSE</a></b></li>
                 @else
-                <li><a href="#">{{ Auth::user()->first_name }}</a></li>
-                <li><a href="{{ route('authenticated.logout') }}">Logout</a></li>
+                    <li><a href="#"><b>{{ strtoupper( Auth::user()->first_name) }}</b></a></li>
+                    <li><a href="{{ route('authenticated.logout') }}"><b>SALIR</b> </a></li>
                 @endif
             </ul>
         </div><!--/.nav-collapse -->

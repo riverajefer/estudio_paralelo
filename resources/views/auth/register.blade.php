@@ -101,7 +101,7 @@
         <hr>
 
         <button class="btn btn-lg btn-primary btn-block register-btn" type="submit">
-        Registrar
+        Continua
         </button>
 
         <p class="or-social"> ó </p>
