@@ -150,7 +150,7 @@ return [
         Barryvdh\Debugbar\ServiceProvider::class,
         Torann\GeoIP\GeoIPServiceProvider::class,
         
-
+        
         Collective\Html\HtmlServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
         Prettus\Repository\Providers\RepositoryServiceProvider::class,

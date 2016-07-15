@@ -37,7 +37,7 @@ return [
 
         'api_test'          => base_path('tests/'),
 
-        'views'             => base_path('resources/views/'),
+        'views'             => base_path('resources/views/admin/'),
 
         'schema_files'      => base_path('resources/model_schemas/'),
 
@@ -59,7 +59,7 @@ return [
 
         'repository'        => 'App\Repositories',
 
-        'controller'        => 'App\Http\Controllers',
+        'controller'        => 'App\Http\Controllers\Admin',
 
         'api_controller'    => 'App\Http\Controllers\API',
 
@@ -120,11 +120,11 @@ return [
 
     'prefixes' => [
 
-        'route' => '',  // using admin will create route('admin.?.index') type routes
+        'route' => 'admin',  // using admin will create route('admin.?.index') type routes
 
         'path' => '',
 
-        'view' => '',  // using backend will create return view('backend.?.index') type the backend views directory
+        'view' => 'admin',  // using backend will create return view('backend.?.index') type the backend views directory
 
         'public' => '',
     ],
