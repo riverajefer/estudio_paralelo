@@ -151,8 +151,11 @@ return [
         Torann\GeoIP\GeoIPServiceProvider::class,
         
 
-
-
+        Collective\Html\HtmlServiceProvider::class,
+        Laracasts\Flash\FlashServiceProvider::class,
+        Prettus\Repository\Providers\RepositoryServiceProvider::class,
+        \InfyOm\Generator\InfyOmGeneratorServiceProvider::class,
+        \InfyOm\CoreTemplates\CoreTemplatesServiceProvider::class,
 
     ],
 
@@ -206,8 +209,9 @@ return [
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'GeoIP' => Torann\GeoIP\GeoIPFacade::class,
-
-
+        'Form'      => Collective\Html\FormFacade::class,
+        'Html'      => Collective\Html\HtmlFacade::class,
+        'Flash'     => Laracasts\Flash\Flash::class,        
     ],
 
 ];

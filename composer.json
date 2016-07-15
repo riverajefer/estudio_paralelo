@@ -14,8 +14,11 @@
         "barryvdh/laravel-debugbar": "^2.2",
         "torann/geoip": "0.2.*@dev",
         "infyomlabs/laravel-generator": "dev-master",
-        "infyomlabs/core-templates": "dev-master",       
-        "laravelcollective/html": "^5.2"
+        "infyomlabs/core-templates": "dev-master",
+        "laravelcollective/html": "^5.1",
+        "infyomlabs/swagger-generator": "dev-master",
+        "jlapp/swaggervel": "dev-master"        
+
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
