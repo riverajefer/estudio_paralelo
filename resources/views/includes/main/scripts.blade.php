@@ -2,3 +2,4 @@
 	{!! HTML::script('/plugins/bootstrap/js/bootstrap.min.js') !!}
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 	{!! HTML::script('/js/ie10-viewport-bug-workaround.js') !!}
+	{!! HTML::script('js/materialize.min.js') !!}

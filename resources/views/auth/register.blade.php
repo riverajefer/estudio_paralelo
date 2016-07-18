@@ -7,95 +7,115 @@
 
 @section('content')
 
-        {!! Form::open(['url' => route('auth.register-post'), 'class' => 'form-signin', 'data-parsley-validate' ] ) !!}
+<div class="row">
+    <div class="col s6 offset-s3">
+
+        {!! Form::open(['url' => route('auth.register-post'), 'class' => 'form-signin_', 'data-parsley-validate' ] ) !!}
 
         @include('includes.errors')
+        <div class="form-signin">
+            <h1>
+                Diseña tu espacio soñado con nuestro equipo de interioristas profesionales en 4 sencillos pasos
+            </h1>
+            <h2>
+                Hand-picked professional interior designers.
+                Room designs start at just $299.
+            </h2>
+        </div>
 
-        <h1>
-            Diseña tu espacio soñado con nuestro equipo de interioristas profesionales en 4 sencillos pasos
-        </h1>
-        <h2>
-            Hand-picked professional interior designers.
-            Room designs start at just $299.
-        </h2>
+        <div class="row">
+            <div class="input-field col s12">
+                {!! Form::text('first_name', null, [
+                    'class'                         => '',
+                    'required',
+                    'id'                            => 'inputFirstName',
+                    'data-parsley-required-message' => 'El nombre es requerido',
+                    'data-parsley-trigger'          => 'change focusout',
+                    'data-parsley-pattern'          => '/^[a-zA-Z]*$/',
+                    'data-parsley-minlength'        => '2',
+                    'data-parsley-maxlength'        => '32'
+                ]) !!}
+                <label for="inputFirstName">Nombre</label>
+            </div>
+        </div>
 
-        <label for="inputFirstName" class="sr-only">Nombre</label>
-        {!! Form::text('first_name', null, [
-            'class'                         => 'form-control',
-            'placeholder'                   => 'Nombre',
-            'required',
-            'id'                            => 'inputFirstName',
-            'data-parsley-required-message' => 'El nombre es requerido',
-            'data-parsley-trigger'          => 'change focusout',
-            'data-parsley-pattern'          => '/^[a-zA-Z]*$/',
-            'data-parsley-minlength'        => '2',
-            'data-parsley-maxlength'        => '32'
-        ]) !!}
+        <div class="row">
+            <div class="input-field col s12">
+                {!! Form::text('last_name', null, [
+                    'class'                         => '',
+                    'required',
+                    'id'                            => 'inputLastName',
+                    'data-parsley-required-message' => 'El apellido es requerido',
+                    'data-parsley-trigger'          => 'change focusout',
+                    'data-parsley-pattern'          => '/^[a-zA-Z]*$/',
+                    'data-parsley-minlength'        => '2',
+                    'data-parsley-maxlength'        => '32'
+                ]) !!}
+                <label for="inputLastName">Apellido</label>
+            </div>
+        </div>
 
-        <label for="inputLastName" class="sr-only">Apellido</label>
-        {!! Form::text('last_name', null, [
-            'class'                         => 'form-control',
-            'placeholder'                   => 'Apellido',
-            'required',
-            'id'                            => 'inputLastName',
-            'data-parsley-required-message' => 'El apellido es requerido',
-            'data-parsley-trigger'          => 'change focusout',
-            'data-parsley-pattern'          => '/^[a-zA-Z]*$/',
-            'data-parsley-minlength'        => '2',
-            'data-parsley-maxlength'        => '32'
-        ]) !!}
+        <div class="row">
+            <div class="input-field col s12">
+                {!! Form::email('email', null, [
+                    'class'                         => '',
+                    'required',
+                    'id'                            => 'inputEmail',
+                    'data-parsley-required-message' => 'El email es requerido',
+                    'data-parsley-trigger'          => 'change focusout',
+                    'data-parsley-type'             => 'email'
+                ]) !!}
+                <label for="inputEmail">Email</label>
+            </div>
+        </div>
 
-        <label for="inputEmail" class="sr-only">Email</label>
-        {!! Form::email('email', null, [
-            'class'                         => 'form-control',
-            'placeholder'                   => 'Email',
-            'required',
-            'id'                            => 'inputEmail',
-            'data-parsley-required-message' => 'El email es requerido',
-            'data-parsley-trigger'          => 'change focusout',
-            'data-parsley-type'             => 'email'
-        ]) !!}
+        <div class="row">
+            <div class="input-field col s12">
+                {!! Form::input('tel', 'tel', null, [
+                    'class'                         => '',
+                    'required',
+                    'id'                            => 'inputTel',
+                    'data-parsley-required-message' => 'El teléfono es requerido',
+                    'data-parsley-trigger'          => 'change focusout',
+                    'data-parsley-type'             => 'number'
+                ]) !!}
+                <label for="inputTel">Tel.</label>
+            </div>
+        </div>
 
-        <label for="inputTel" class="sr-only">Tel.</label>
-        {!! Form::input('tel', 'tel', null, [
-            'class'                         => 'form-control',
-            'placeholder'                   => 'Teléfono',
-            'required',
-            'id'                            => 'inputTel',
-            'data-parsley-required-message' => 'El teléfono es requerido',
-            'data-parsley-trigger'          => 'change focusout',
-            'data-parsley-type'             => 'number'
-        ]) !!}
+        <div class="row">
+            <div class="input-field col s12">
+                {!! Form::password('password', [
+                    'class'                         => '',
+                    'required',
+                    'id'                            => 'inputPassword',
+                    'data-parsley-required-message' => 'La Contraseña es requerido',
+                    'data-parsley-trigger'          => 'change focusout',
+                    'data-parsley-minlength'        => '6',
+                    'data-parsley-maxlength'        => '20'
+                ]) !!}
+                <label for="inputPassword">Contraseña</label>
+            </div>
+        </div>
 
-        <label for="inputPassword" class="sr-only">Contraseña</label>
-        {!! Form::password('password', [
-            'class'                         => 'form-control',
-            'placeholder'                   => 'Contraseña',
-            'required',
-            'id'                            => 'inputPassword',
-            'data-parsley-required-message' => 'La Contraseña es requerido',
-            'data-parsley-trigger'          => 'change focusout',
-            'data-parsley-minlength'        => '6',
-            'data-parsley-maxlength'        => '20'
-        ]) !!}
+        <div class="row">
+            <div class="input-field col s12">
+                {!! Form::password('password_confirmation', [
+                    'class'                         => '',
+                    'required',
+                    'id'                            => 'inputPasswordConfirm',
+                    'data-parsley-required-message' => 'La confirmación de la contraseña es requerida',
+                    'data-parsley-trigger'          => 'change focusout',
+                    'data-parsley-equalto'          => '#inputPassword',
+                    'data-parsley-equalto-message'  => 'Las contraseñas no son iguales',
+                ]) !!}
+                <label for="inputPasswordConfirm">Confirme contraseña</label>
+            </div>
+        </div>
 
-        <label for="inputPasswordConfirm" class="sr-only has-warning">Confirme contraseña</label>
-        {!! Form::password('password_confirmation', [
-            'class'                         => 'form-control',
-            'placeholder'                   => 'Confirme la contraseña',
-            'required',
-            'id'                            => 'inputPasswordConfirm',
-            'data-parsley-required-message' => 'La confirmación de la contraseña es requerida',
-            'data-parsley-trigger'          => 'change focusout',
-            'data-parsley-equalto'          => '#inputPassword',
-            'data-parsley-equalto-message'  => 'Las contraseñas no son iguales',
-        ]) !!}
 
-        <div class="checkbox">
-            <label>
-                {!! Form::checkbox('terminos', 1) !!} Acepto terminos y condiciones
-            </label>
-        </div>      
+      <input type="checkbox" class="filled-in" id="remember" name="remember" />
+      <label for="remember">Acepto terminos y condiciones</label>
 
         <div class="g-recaptcha" data-sitekey="{{ env('RE_CAP_SITE') }}"></div>
         <hr>
@@ -115,6 +135,9 @@
         </a>
 
         {!! Form::close() !!}
+    </div>
+</div>
+
 @stop
 
 @section('footer')

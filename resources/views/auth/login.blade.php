@@ -7,45 +7,57 @@
 
 @section('content')
 
-        {!! Form::open(['url' => route('auth.login-post'), 'class' => 'form-signin', 'data-parsley-validate' ] ) !!}
 
+<div class="row">
+    <div class="col s6 offset-s3">
 
-        @include('includes.status')
+     {!! Form::open(['url' => route('auth.login-post'), 'class' => '', 'data-parsley-validate' ] ) !!}
+
+        
 
         <h2 class="form-signin-heading">Acceder</h2>
 
-        <label for="inputEmail" class="sr-only">Email</label>
-        {!! Form::email('email', null, [
-            'class'                         => 'form-control',
-            'placeholder'                   => 'Email',
-            'required',
-            'id'                            => 'inputEmail',
-            'data-parsley-required-message' => 'El email es requerido',
-            'data-parsley-trigger'          => 'change focusout',
-            'data-parsley-type'             => 'email'
-        ]) !!}
-
-        <label for="inputPassword" class="sr-only">Password</label>
-        {!! Form::password('password', [
-            'class'                         => 'form-control',
-            'placeholder'                   => 'Contraseña',
-            'required',
-            'id'                            => 'inputPassword',
-            'data-parsley-required-message' => 'La contraseña es requerida',
-            'data-parsley-trigger'          => 'change focusout',
-            'data-parsley-minlength'        => '6',
-            'data-parsley-maxlength'        => '20'
-        ]) !!}
-
-        <div class="checkbox">
-            <label>
-                {!! Form::checkbox('remember', 1) !!} Recordarme
-            </label>
+        <div class="row">
+            <div class="input-field col s12">
+                {!! Form::email('email', null, [
+                    'class'                         => 'validate',
+                    'required',
+                    'id'                            => 'inputEmail',
+                    'data-parsley-required-message' => 'El email es requerido',
+                    'data-parsley-trigger'          => 'change focusout',
+                    'data-parsley-type'             => 'email'
+                ]) !!}
+                <label for="inputEmail">Email</label>
+            </div>
         </div>
-        <button class="btn btn-lg btn-primary btn-block login-btn" type="submit">
+
+      <div class="row">
+        <div class="input-field col s12">
+            {!! Form::password('password', [
+                'class'                         => 'validate form-control',
+                'required',
+                'id'                            => 'inputPassword',
+                'data-parsley-required-message' => 'La contraseña es requerida',
+                'data-parsley-trigger'          => 'change focusout',
+                'data-parsley-minlength'        => '6',
+                'data-parsley-maxlength'        => '20'
+            ]) !!}
+            <label for="inputPassword">Password</label>
+        </div>
+      </div>
+
+      <input type="checkbox" class="filled-in" id="remember" name="remember" />
+      <label for="remember">Recordarme</label>
+      @include('includes.status')
+      <br><br>
+               
+
+        <button class="btn waves-effect waves-light btn-lg btn-primary btn-block login-btn" type="submit">
             Ingresar
         </button>
-        <p><a href="{{ route('auth.password') }}">Olvide mi contraseña</a></p>
+        <p class="enlace_rpw">
+            <a href="{{ route('auth.password') }}" >Olvide mi contraseña</a>
+        </p>
 
         <p class="or-social">Ó</p>
 
@@ -55,7 +67,11 @@
             <p>REGISTRARME</p>
         </a>
         {!! Form::close() !!}
+        
+    </div>
+</div>
 
+   
 @stop
 
 @section('footer')

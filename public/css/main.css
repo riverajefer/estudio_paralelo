@@ -33,3 +33,18 @@ body {
 	color: #a09d9d;
 	margin: 15px 0px;
 }
+
+.alert-danger {
+    color: #a94442;
+    background-color: transparent;
+    border: none;
+    text-align: right;
+    margin: 0px;
+    padding: 0px !important;
+    font-style: italic;
+    margin-top: -6px;
+}
+.enlace_rpw{
+	text-align:right; 
+	padding: 20px 0px;
+}
