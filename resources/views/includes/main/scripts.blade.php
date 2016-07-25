@@ -1,5 +1,4 @@
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	{!! HTML::script('/plugins/bootstrap/js/bootstrap.min.js') !!}
-	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-	{!! HTML::script('/js/ie10-viewport-bug-workaround.js') !!}
-	{!! HTML::script('js/materialize.min.js') !!}
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" defer="defer"></script>
+	<script src="{{asset('plugins/bootstrap/js/bootstrap.min.js')}}" defer="defer"></script>
+	<script src="{{asset('js/ie10-viewport-bug-workaround.js')}}" defer="defer"></script>
+	<script src="{{asset('js/materialize.min.js')}}" defer="defer"></script>

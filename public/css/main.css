@@ -43,8 +43,115 @@ body {
     padding: 0px !important;
     font-style: italic;
     margin-top: -6px;
+    font-size: 11px;
 }
 .enlace_rpw{
 	text-align:right; 
 	padding: 20px 0px;
+}
+
+input:not([type]), input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #ACC3D8;
+    border-radius: 0;
+    outline: none;
+    height: 3rem;
+    width: 100%;
+    font-size: 1rem;
+    margin: 0 0 15px 0;
+    padding: 0;
+    box-shadow: none;
+    box-sizing: content-box;
+    transition: all 0.5s;
+}
+
+input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly]), input[type=email]:focus:not([readonly]), input[type=url]:focus:not([readonly]), input[type=time]:focus:not([readonly]), input[type=date]:focus:not([readonly]), input[type=datetime]:focus:not([readonly]), input[type=datetime-local]:focus:not([readonly]), input[type=tel]:focus:not([readonly]), input[type=number]:focus:not([readonly]), input[type=search]:focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #002F56;
+    box-shadow: 0 1px 0 0 #002F56;
+}
+
+.input-field label {
+    color: #ACC3D8;
+    position: absolute;
+    top: 1.5em;
+    left: 0.75rem;
+    font-size: 1rem;
+    cursor: text;
+    transition: .2s ease-out;
+}
+.navbar-default {
+    background-color: #F7FAFB;
+    border-color: #e7e7e7;
+    box-shadow: none;
+    padding-top: 10px;
+}
+
+.panel_espacio{
+	text-align: center;
+}
+
+.panel_espacio h1{
+	font-size: 1.5em;
+	color: #003D8A;
+	font-weight: bold;
+}
+.panel_espacio p{
+	color: #003D8A;
+}
+
+@media only screen and (min-width: 993px){
+	.container {
+	    width: 60%;
+	}
+}
+
+
+.img-radio label{ /* HIDE RADIO */
+  transition: all .2s ease-in-out;
+}
+.img-radio label > input{ /* HIDE RADIO */
+  display:none;
+}
+
+.img-radio label > input + img{ /* IMAGE STYLES */
+  cursor:pointer;
+  border:2px solid transparent;
+}
+
+
+.img-radio label:hover{
+  transform: scale(1.1);
+}
+
+
+.img-radio label > input:checked + img{ /* (CHECKED) IMAGE STYLES */
+  border:2px solid #002F56;
+  border-radius: 35px;
+}
+
+.img-radio label span{
+  color: #003D8A;
+  font-size: 1.2em;
+  text-transform: uppercase;
+}
+.btn-azul{
+	background-color: #002F56;
+}
+.btn-azul:hover{
+	background-color: #83A5C5;
+	color:#FFF;
+}
+.btn-azul:active{
+	background-color: #83A5C5;
+	color:#FFF;
+}
+.btn-azul:focus{
+	background-color: #83A5C5;
+	color:#FFF;
+}
+
+.navbar-nav>li>a {
+    color: #002F56 !important;
+    font-weight: normal;
 }

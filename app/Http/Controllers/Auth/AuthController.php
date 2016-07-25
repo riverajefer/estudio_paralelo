@@ -42,7 +42,7 @@ class AuthController extends Controller {
         {
             if( $this->auth->user()->hasRole('user'))
             {
-                return redirect()->route('user.home');
+                return redirect()->route('user.seleccione_espacio');
             }
 
             if( $this->auth->user()->hasRole('administrator'))
@@ -68,7 +68,6 @@ class AuthController extends Controller {
         return redirect()->route('auth.login')
             ->with('status', 'success')
             ->with('message', 'Logged out');
-
     }
 
     public function getRegister()
@@ -102,8 +101,11 @@ class AuthController extends Controller {
             'password'      => $input['password']
         ];
 
-        $this->userRepository->register($data);
-
+        $user = $this->userRepository->register($data);
+        $this->auth->login($user, true);
+        return redirect()->route('user.seleccione_espacio');
+        return redirect()->route('user.home');
+        
         return redirect()->route('auth.login')
             ->with('status', 'success')
             ->with('message', 'You are registered successfully. Please login.');
@@ -184,6 +186,7 @@ class AuthController extends Controller {
 
         if( $this->auth->user()->hasRole('user'))
         {
+            return redirect()->route('user.seleccione_espacio');
             return redirect()->route('user.home');
         }
 

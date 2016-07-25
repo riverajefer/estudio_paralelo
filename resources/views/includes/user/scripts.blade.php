@@ -1,2 +1,2 @@
-	<!-- Scripts Admin -->
-	{!! HTML::script('js/user.js') !!}
+	<!-- Scripts User -->
+	<script src="{{asset('js/user.js')}}" defer="defer"></script>

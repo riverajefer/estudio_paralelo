@@ -29,6 +29,7 @@ class UserRepository {
         //Assign Role
         $role = Role::whereName('user')->first();
         $user->assignRole($role);
+        return $user;
 
     }
 

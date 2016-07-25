@@ -30,6 +30,9 @@ Route::get('/social/handle/{provider}',   ['as' => 'social.handle',   'uses' => 
 Route::group(['prefix' => 'user', 'middleware' => 'auth:user'], function()
 {
     Route::get('/', ['as' =>'user.home', 'uses' => 'UserController@getHome']);
+    Route::get('seleccione_espacio', ['as' => 'user.seleccione_espacio','uses' => 'User\FiltroController@setEspacio']);
+    Route::get('seleccione_estilo',  ['as' => 'user.seleccione_estilo','uses' => 'User\FiltroController@setEstilo']);
+    Route::get('seleccione_color',   ['as' => 'user.seleccione_color','uses' => 'User\FiltroController@setColor']);
 
 });
 
@@ -41,11 +44,11 @@ Route::group(['prefix' => 'user', 'middleware' => 'auth:user'], function()
 */
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:administrator'], function()
 {
-    Route::get('/', ['as' => 'admin.home', 'uses' => 'AdminController@getHome']);
-    //Route::resource('espacios', 'EspacioController');
+    Route::get('/', ['as' => 'admin.home', 'uses' => 'Admin\AdminController@getHome']);
     Route::resource('estilos', 'Admin\EstiloController');
+    Route::resource('espacios', 'Admin\EspacioController');
+    Route::resource('colors', 'Admin\ColorController');
 });
-
 
 
 
@@ -53,7 +56,6 @@ Route::group(['middleware' => 'auth:all'], function()
 {
     Route::get('/logout', ['as' => 'authenticated.logout', 'uses' => 'Auth\AuthController@getLogout']);
 });
-
 
 
 /*
@@ -69,9 +71,6 @@ Route::group(['prefix' => 'api', 'namespace' => 'API'], function () {
 });
 
 
-
 Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
-
-
 
 

@@ -11,7 +11,7 @@
 <div class="row">
     <div class="col s6 offset-s3">
 
-     {!! Form::open(['url' => route('auth.login-post'), 'class' => '', 'data-parsley-validate' ] ) !!}
+     {!! Form::open(['url' => route('auth.login-post'), 'class' => 'acceder', 'data-parsley-validate' ] ) !!}
 
         
 
@@ -82,7 +82,6 @@
             errorTemplate: '<div class="alert alert-danger parsley" role="alert"></div>'
         };
     </script>
-
-    {!! HTML::script('/assets/plugins/parsley.min.js') !!}
+    <script src="{{asset('/assets/plugins/parsley.min.js')}}" defer="defer"></script>
 
 @stop

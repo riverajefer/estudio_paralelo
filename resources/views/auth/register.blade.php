@@ -11,8 +11,7 @@
     <div class="col s6 offset-s3">
 
         {!! Form::open(['url' => route('auth.register-post'), 'class' => 'form-signin_', 'data-parsley-validate' ] ) !!}
-
-        @include('includes.errors')
+        
         <div class="form-signin">
             <h1>
                 Diseña tu espacio soñado con nuestro equipo de interioristas profesionales en 4 sencillos pasos
@@ -22,7 +21,8 @@
                 Room designs start at just $299.
             </h2>
         </div>
-
+        
+        @include('includes.errors')
         <div class="row">
             <div class="input-field col s12">
                 {!! Form::text('first_name', null, [
@@ -113,7 +113,7 @@
             </div>
         </div>
 
-
+      <br>
       <input type="checkbox" class="filled-in" id="remember" name="remember" />
       <label for="remember">Acepto terminos y condiciones</label>
 
