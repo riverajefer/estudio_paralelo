@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>User</title>
+    <title>Innen+haus</title>
     <!-- Incluye  estilos -->
     @include('includes/main/estilos')
     @include('includes/admin/estilos')

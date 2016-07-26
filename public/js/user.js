@@ -35,14 +35,42 @@ $('input[name=color]').click(function(){
 	$("#siguiente_color").show();
 });
 
+
+
+
 $("#siguiente_color").click(function(){
 
 	if($('input[name=color]:checked').length<=0)
 	{
 	  alert("Seleccione un color")
 	}
-	//window.location.href = "seleccione_estilo";
+	window.location.href = "seleccione_referentes";
 
 });
 
+
+$('input[name=referente]').click(function(){
+	$("#siguiente_referente").show();
+	
+	var numberOfChecked = $('input[name=referente]:checked').length;
+	if(numberOfChecked>4){
+		$(this).prop( "checked", false );
+		$("input[name=referente]:not(:checked)").prop("disabled", true);
+		$('#myModal').modal('show')
+	}
+	else if(numberOfChecked==0){
+		 $("#siguiente_referente").hide();
+	}
+	else if(numberOfChecked<4){
+		$("input[name=referente]:not(:checked)").prop("disabled", false);
+	}
+
+});
+
+
+$("#siguiente_referente").click(function(){
+
+	window.location.href = "subir_referentes";
+
+});
 

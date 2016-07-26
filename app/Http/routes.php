@@ -33,6 +33,8 @@ Route::group(['prefix' => 'user', 'middleware' => 'auth:user'], function()
     Route::get('seleccione_espacio', ['as' => 'user.seleccione_espacio','uses' => 'User\FiltroController@setEspacio']);
     Route::get('seleccione_estilo',  ['as' => 'user.seleccione_estilo','uses' => 'User\FiltroController@setEstilo']);
     Route::get('seleccione_color',   ['as' => 'user.seleccione_color','uses' => 'User\FiltroController@setColor']);
+    Route::get('seleccione_referentes', ['as' => 'user.seleccione_referentes','uses' => 'User\FiltroController@setReferentes']);
+    Route::get('subir_referentes', ['as' => 'user.subir_referentes','uses' => 'User\FiltroController@setReferentesUser']);
 
 });
 

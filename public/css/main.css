@@ -163,7 +163,6 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
   transform: scale(1.1);
 }
 
-
 .img-radio label > input:checked + img{ /* (CHECKED) IMAGE STYLES */
   border:2px solid #002F56;
   border-radius: 35px;
@@ -174,6 +173,39 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
   font-size: 1.2em;
   text-transform: uppercase;
 }
+
+
+
+.img-check label{ /* HIDE RADIO */
+  transition: all .2s ease-in-out;
+}
+.img-check label > input{ /* HIDE RADIO */
+  display:none;
+}
+
+.img-check label > input + img{ /* IMAGE STYLES */
+  cursor:pointer;
+  border:2px solid transparent;
+}
+
+
+.img-check label:hover{
+  transform: scale(1.1);
+}
+
+.img-check label > input:checked + img{ /* (CHECKED) IMAGE STYLES */
+  border:2px solid #002F56;
+  border-radius: 35px;
+}
+
+.img-check label span{
+  color: #003D8A;
+  font-size: 1.2em;
+  text-transform: uppercase;
+}
+
+
+
 .btn-azul{
   font-family: 'Conv_Montserrat-Bold',Sans-Serif;
 	background-color: #002F56;
@@ -391,4 +423,13 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
 }
 .form-signin_ .row{
     margin-bottom: 0px !important;
+}
+
+
+
+.modal {
+    background-color: transparent;
+}
+.z-depth-4, .modal {
+    box-shadow: none;
 }
