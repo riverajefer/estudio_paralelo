@@ -1,11 +1,46 @@
 /************************************
 Estilos Main
 *************************************/
+
+@font-face {
+  font-family: 'Conv_Montserrat-Bold';
+  src: url('../fonts/Montserrat-Bold.eot');
+  src: local('☺'), url('../fonts/Montserrat-Bold.woff') format('woff'), url('../fonts/Montserrat-Bold.ttf') format('truetype'), url('../fonts/Montserrat-Bold.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Conv_Montserrat-Regular';
+  src: url('../fonts/Montserrat-Regular.eot');
+  src: local('☺'), url('../fonts/Montserrat-Regular.woff') format('woff'), url('../fonts/Montserrat-Regular.ttf') format('truetype'), url('../fonts/Montserrat-Regular.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Conv_Georgia Bold Italic';
+  src: url('../fonts/Georgia Bold Italic.eot');
+  src: local('☺'), url('../fonts/Georgia Bold Italic.woff') format('woff'), url('../fonts/Georgia Bold Italic.ttf') format('truetype'), url('../fonts/Georgia Bold Italic.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Conv_Georgia Italic';
+  src: url('../fonts/Georgia Italic.eot');
+  src: local('☺'), url('../fonts/Georgia Italic.woff') format('woff'), url('../fonts/Georgia Italic.ttf') format('truetype'), url('../fonts/Georgia Italic.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
 html,
 body {
 	margin:0;
 	padding:0;
 	height:100%;
+  font-family:'Conv_Montserrat-Regular',Sans-Serif;
 }
 #wrapper {
 	min-height:100%;
@@ -92,9 +127,11 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
 }
 
 .panel_espacio h1{
-	font-size: 1.5em;
-	color: #003D8A;
-	font-weight: bold;
+  font-family: 'Conv_Georgia Bold Italic',Sans-Serif;
+  font-size: 2em;
+  color: #003D8A;
+  font-weight: bold;
+  margin-bottom: 7px;
 }
 .panel_espacio p{
 	color: #003D8A;
@@ -138,6 +175,7 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
   text-transform: uppercase;
 }
 .btn-azul{
+  font-family: 'Conv_Montserrat-Bold',Sans-Serif;
 	background-color: #002F56;
 }
 .btn-azul:hover{
@@ -156,6 +194,7 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
 .navbar-nav>li>a {
     color: #002F56 !important;
     font-weight: normal;
+    font-size: 12px;
 }
 
 
@@ -163,4 +202,193 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
 .navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
     margin-left: -120px;
 }
+}
+
+.form-signin {
+    max-width: 600px;
+    padding: 15px;
+    margin: 0 auto;
+}
+.form-signin-heading{
+    font-family: 'Conv_Georgia Bold Italic',Sans-Serif;
+    text-align: center;
+    font-size: 20px;
+    color: #002F56;
+    font-weight: bold;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+    margin-bottom: 10px;
+}
+.form-signin .checkbox {
+    font-weight: normal;
+}
+.form-signin .form-control {
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
+    margin: 15px 0px;
+    border: 2px solid #a09d9d;    
+}
+.form-signin .form-control:focus {
+    z-index: 2;
+}
+.form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.login-btn{
+    font-family: 'Conv_Montserrat-Bold',Sans-Serif;
+    margin-top:10px;
+    border-radius: 0px;
+    background-color: #002F56;
+    height: 45px;
+}
+.login-btn:hover{
+    background-color: #2871aa;
+    border-color: #2871aa;
+}
+.or-social{
+    text-align:center;
+    margin: 10px 0 10px 0;
+}
+.facebook{
+    background-color: #3B5998;
+    border-color: #4863ae;
+    border-radius: 0px;
+    height: 45px;
+    padding-top: 2px;
+    text-transform: none;
+    font-family: 'Conv_Montserrat-Bold',Sans-Serif;
+}
+.facebook:hover{
+    background-color: #2871aa;
+    border-color: #2871aa;
+}
+.twitter{
+    background-color: #46c0fb;
+    border-color: #46c0fb;
+}
+.twitter:hover{
+    background-color: #00c7fb;
+    border-color: #00c7fb;
+}
+.google{
+    background-color: #2196F3;
+    border-color: #2196F3;
+}
+.google:hover{
+    background-color: #42A5F5;
+    border-color:#42A5F5;
+}
+.acceder .row{
+     margin-bottom: 0px !important;
+}
+
+.form-signin {
+    max-width: 600px;
+    padding: 15px;
+    margin: 10px auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+    margin-bottom: 10px;
+}
+.form-signin .checkbox {
+    font-weight: normal;
+    margin: 10px 0px;
+}
+.form-signin .form-control {
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
+    margin: 15px 0px;
+    border: 2px solid #a09d9d;
+}
+.form-signin .form-control:focus {
+    z-index: 2;
+}
+.form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.form-signin input:not([type="email"]) {
+    margin-bottom: -1px;
+    border-radius:0px;
+}
+.form-signin #inputPasswordConfirm {
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.register-btn{
+    background-color: #002F56;
+    margin-top:10px;
+    border-radius: 0px;
+    height: 45px;
+}
+
+.register-btn:hover{
+    background-color: #2871aa;
+    border-color: #2871aa;
+}
+.or-social{
+    text-align:center;
+    margin: 10px 0 10px 0;
+}
+
+.twitter{
+    background-color: #46c0fb;
+    border-color: #46c0fb;
+}
+.twitter:hover{
+    background-color: #00c7fb;
+    border-color: #00c7fb;
+}
+.g-recaptcha{
+    margin-top:10px;
+}
+.google{
+    background-color: #2196F3;
+    border-color: #2196F3;
+}
+.google:hover{
+    background-color: #42A5F5;
+    border-color:#42A5F5;
+}
+
+.checkbox2{
+    margin: 15px 0px;
+}
+
+.form-signin h1{
+    font-family: 'Conv_Georgia Bold Italic',Sans-Serif;
+    text-align: center;
+    font-size: 20px;
+    color: #002F56;
+    font-weight: bold;
+    
+}
+
+.form-signin h2{
+    text-align: center;
+    font-size: 17px;
+    padding: 0px 60px;
+    color: #002F56;
+}
+.form-signin_ .row{
+    margin-bottom: 0px !important;
 }
