@@ -8,7 +8,9 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Menú User</a>
+            <a class="navbar-brand" href="{{ route('public.home')  }}">
+                <img src="{{asset('img/logos/logo.png')}}" style="max-width:150px; margin-top: -7px;" alt="Logo">
+            </a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">

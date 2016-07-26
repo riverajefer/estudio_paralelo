@@ -33,6 +33,9 @@
 	<div align="center">
  		<button class="btn waves-effect waves-light btn-azul" id ="siguiente_espacio" style="display:none" name="action">Siguiente</button>
 	</div>
+	<br>
+	<br>
+	<br>
 
    </div>
 
