@@ -2,7 +2,7 @@
 SCRIPTS USER
 ***************************************/
 $('input[name=espacio]').click(function(){
-	$("#siguiente_espacio").show();
+	$("#siguiente_espacio").prop("disabled", false);
 });
 
 $("#siguiente_espacio").click(function(){
@@ -17,7 +17,7 @@ $("#siguiente_espacio").click(function(){
 
 
 $('input[name=estilo]').click(function(){
-	$("#siguiente_estilo").show();
+	$("#siguiente_estilo").prop("disabled", false);
 });
 
 $("#siguiente_estilo").click(function(){
@@ -32,7 +32,7 @@ $("#siguiente_estilo").click(function(){
 });
 
 $('input[name=color]').click(function(){
-	$("#siguiente_color").show();
+	$("#siguiente_color").prop("disabled", false);
 });
 
 
@@ -50,7 +50,7 @@ $("#siguiente_color").click(function(){
 
 
 $('input[name=referente]').click(function(){
-	$("#siguiente_referente").show();
+	$("#siguiente_referente").prop("disabled", false);
 	
 	var numberOfChecked = $('input[name=referente]:checked').length;
 	if(numberOfChecked>4){

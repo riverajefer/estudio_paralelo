@@ -31,7 +31,7 @@
 	</div>
 	<br>
 	<div align="center">
- 		<button class="btn waves-effect waves-light btn-azul" id ="siguiente_estilo" style="display:none" name="action">Siguiente</button>
+ 		<button class="btn waves-effect waves-light btn-azul" id ="siguiente_estilo" disabled name="action">Siguiente</button>
 	</div>
 
    </div>

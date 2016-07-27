@@ -13,7 +13,6 @@
 	    </p>
 	    <p>&nbsp;</p>
   
-		  
 		<div class="container" style="width:60%">
 		    @foreach($espacios as $espacio)
 		  		<div class="row-fluid">
@@ -29,7 +28,7 @@
      	</div>
 
 		<div align="center">
-	 		<button class="btn waves-effect waves-light btn-azul" id ="siguiente_espacio" style="display:none; margin:0px" name="action">Siguiente</button>
+	 		<button class="btn waves-effect waves-light btn-azul" id ="siguiente_espacio" disabled name="action">Siguiente</button>
 		</div>	
 
 

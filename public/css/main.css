@@ -284,10 +284,12 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
     border-radius: 0px;
     background-color: #002F56;
     height: 45px;
+    box-shadow: none;
 }
 .login-btn:hover{
     background-color: #2871aa;
     border-color: #2871aa;
+    box-shadow: none;
 }
 .or-social{
     text-align:center;
@@ -301,10 +303,18 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
     padding-top: 2px;
     text-transform: none;
     font-family: 'Conv_Montserrat-Bold',Sans-Serif;
+    box-shadow: none;
+}
+.btn{
+    box-shadow: none;
+}
+.btn:hover{
+    box-shadow: none;
 }
 .facebook:hover{
     background-color: #2871aa;
     border-color: #2871aa;
+    box-shadow: none;
 }
 .twitter{
     background-color: #46c0fb;
