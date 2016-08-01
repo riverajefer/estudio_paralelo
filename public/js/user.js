@@ -70,7 +70,57 @@ $('input[name=referente]').click(function(){
 
 $("#siguiente_referente").click(function(){
 
-	window.location.href = "subir_referentes";
+	window.location.href = "subir_referente";
 
 });
 
+
+
+$("#file1").filestyle({
+	buttonBefore: true,
+	buttonText: "",
+	buttonName: "btn-upload",
+	iconName: "glyphicon glyphicon-cloud-upload",
+	placeholder: "Sube un referente (opcional)"
+});
+
+
+$("#file2").filestyle({
+	buttonBefore: true,
+	buttonText: "",
+	buttonName: "btn-upload",
+	iconName: "glyphicon glyphicon-cloud-upload",
+	placeholder: "Sube tu plano"
+});
+
+$("#file3").filestyle({
+	buttonBefore: true,
+	buttonText: "",
+	buttonName: "btn-upload",
+	iconName: "glyphicon glyphicon-cloud-upload",
+	placeholder: "Foto del espacio 1"
+});
+
+$("#file4").filestyle({
+	buttonBefore: true,
+	buttonText: "",
+	buttonName: "btn-upload",
+	iconName: "glyphicon glyphicon-cloud-upload",
+	placeholder: "Foto del espacio 2"
+});
+
+$("#file5").filestyle({
+	buttonBefore: true,
+	buttonText: "",
+	buttonName: "btn-upload",
+	iconName: "glyphicon glyphicon-cloud-upload",
+	placeholder: "Foto del espacio 3"
+});
+
+$("#file6").filestyle({
+	buttonBefore: true,
+	buttonText: "",
+	buttonName: "btn-upload",
+	iconName: "glyphicon glyphicon-cloud-upload",
+	placeholder: "Foto del espacio 4"
+});

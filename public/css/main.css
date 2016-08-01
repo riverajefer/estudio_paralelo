@@ -223,6 +223,26 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
 	color:#FFF;
 }
 
+
+.btn-rojo{
+  font-family: 'Conv_Montserrat-Bold',Sans-Serif;
+  background-color: #f44336;
+}
+.btn-rojo:hover{
+  background-color: #e57373;
+  color:#FFF;
+}
+.btn-rojo:active{
+  background-color: #e57373;
+  color:#FFF;
+}
+.btn-rojo:focus{
+  background-color: #e57373;
+  color:#FFF;
+}
+
+
+
 .navbar-nav>li>a {
     color: #002F56 !important;
     font-weight: normal;
@@ -443,3 +463,46 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
 .z-depth-4, .modal {
     box-shadow: none;
 }
+
+
+
+
+.btn-upload{
+  background-color: transparent;
+  color: #002F56;
+}
+
+.btn-upload span{
+  font-size: 30px !important;
+}
+
+
+
+.btn-upload:hover{
+  background-color: transparent;
+  color: #80A3C3;
+}
+
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control{
+  background-color: transparent;
+}
+.errors{
+  color: #F6807C !important;
+}
+
+.errors_img{
+  color: #F6807C !important;
+  text-align: right;
+  font-size: 12px;
+  font-style: italic;
+}
+
+.copi_espacio{
+  text-align: center;
+  margin: 10px 0px;
+}
+
+.waves-effect input[type="button"], .waves-effect input[type="reset"], .waves-effect input[type="submit"] {
+    cursor: pointer;
+}
+
