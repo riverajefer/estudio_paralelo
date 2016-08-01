@@ -15,10 +15,10 @@
     <!-- Scripts main -->
     @include('includes/main/scripts')
     <!-- Scripts user -->
-    @include('includes/user/scripts')
 
     @yield('head')
-
+    @include('includes/user/scripts')
+    
 </head>
 <body>
 

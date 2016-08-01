@@ -14,7 +14,7 @@
 		    	</div>
 		    	<div class="col-md-6 col-sm-6 col-xs-6">
 			    	<a href="{{ URL::to('user/encuesta_terminada') }}" class="btn waves-effect waves-light btn-rojo">
-			    		Finalizar
+			    		NO
 			    	</a>
 		    	</div>
 		    </div>

@@ -3,7 +3,7 @@ namespace App\Http\Controllers\User;
 use Input;
 use Validator;
 use Redirect;
-use Request;
+//use Request;
 use Session;
 use Auth;
 use App\Http\Controllers\Controller;
@@ -11,6 +11,7 @@ use App\Models\Espacio;
 use App\Models\Estilo;
 use App\Models\Color;
 use App\Models\Referente;
+use Illuminate\Http\Request;
 
 class FiltroController extends Controller {
 
@@ -43,18 +44,22 @@ class FiltroController extends Controller {
         return view('panels.user.filtro.ref_user');
     }  
 
-    public function postReferentesUser()
+    public function postReferentesUser(Request $request)
     {
-        if(empty(Input::file('image'))){
-            return Redirect::to('user/tienes_plano');
-        }
+
+      if (!$request->hasFile('image')) {
+         return Redirect::to('user/tienes_plano');
+      }
+      //var_dump(Input::file('image'));
+        /*if(empty(Input::file('image'))){
+        }*/
 
         $file  = array('image' => Input::file('image'));
-        $rules = array('image' => 'mimes:jpeg,jpg,bmp,png,gif|max:200'); 
+        $rules = array('image' => 'mimes:jpeg,jpg,bmp,png,gif|max:6000'); 
         $validator = Validator::make($file, $rules);
 
         if ($validator->fails()) {
-           Session::flash('error', 'Error: el archivo subido no es válido');
+           Session::flash('error', 'Fallo: el archivo subido no es válido');
            return Redirect::back()->withInput()->withErrors($validator);
         }        
 
@@ -66,7 +71,6 @@ class FiltroController extends Controller {
           Session::flash('success', 'Upload successfully'); 
           // guardar el registro en la BD
           return Redirect::to('user/tienes_plano');
-          return "Ok";
         }
         else {
           Session::flash('error', 'Error: el archivo subido no es válido');
@@ -89,7 +93,7 @@ class FiltroController extends Controller {
     {
 
         $file  = array('plano' => Input::file('plano'));
-        $rules = array('plano' => 'required|mimes:jpeg,jpg,bmp,png,gif|max:200'); 
+        $rules = array('plano' => 'required|mimes:jpeg,jpg,bmp,png,gif|max:6000'); 
         $validator = Validator::make($file, $rules);
 
         if ($validator->fails()) {
@@ -127,7 +131,7 @@ class FiltroController extends Controller {
     {
 
         $espacio1  = array('espacio1' => Input::file('espacio1'));
-        $rules = array('espacio1' => 'required|mimes:jpeg,jpg,bmp,png,gif|max:200'); 
+        $rules = array('espacio1' => 'required|mimes:jpeg,jpg,bmp,png,gif|max:6000'); 
         $validator = Validator::make($espacio1, $rules);
 
         if ($validator->fails()) {
@@ -151,7 +155,7 @@ class FiltroController extends Controller {
         if(!empty(Input::file('espacio2'))){
 
             $espacio2  = array('espacio2' => Input::file('espacio2'));
-            $rules = array('espacio2' => 'required|mimes:jpeg,jpg,bmp,png,gif|max:200'); 
+            $rules = array('espacio2' => 'required|mimes:jpeg,jpg,bmp,png,gif|max:6000'); 
             $validator = Validator::make($espacio2, $rules);
 
             if ($validator->fails()) {
@@ -176,7 +180,7 @@ class FiltroController extends Controller {
         if(!empty(Input::file('espacio3'))){
 
             $espacio3  = array('espacio3' => Input::file('espacio3'));
-            $rules = array('espacio3' => 'required|mimes:jpeg,jpg,bmp,png,gif|max:200'); 
+            $rules = array('espacio3' => 'required|mimes:jpeg,jpg,bmp,png,gif|max:6000'); 
             $validator = Validator::make($espacio3, $rules);
 
             if ($validator->fails()) {
@@ -201,7 +205,7 @@ class FiltroController extends Controller {
         if(!empty(Input::file('espacio4'))){
 
             $espacio4  = array('espacio4' => Input::file('espacio4'));
-            $rules = array('espacio4' => 'required|mimes:jpeg,jpg,bmp,png,gif|max:200'); 
+            $rules = array('espacio4' => 'required|mimes:jpeg,jpg,bmp,png,gif|max:6000'); 
             $validator = Validator::make($espacio4, $rules);
 
             if ($validator->fails()) {
@@ -222,7 +226,7 @@ class FiltroController extends Controller {
               return Redirect::back();
             }
         }
-        return Redirect::to('user/encuesta_terminada');
+        return Redirect::to('user/agendar');
               
     }    
 

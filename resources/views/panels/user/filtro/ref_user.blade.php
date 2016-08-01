@@ -3,7 +3,8 @@
 @section('content')
   
 	<div class="panel_espacio">
-	    <h1>Copy</h1>
+	    <h1>Sube un referente</h1>
+	    <br>
 
 	{!! Form::open(['action'=>'User\FiltroController@postReferentesUser', 'files'=>true]) !!}
 		@if(Session::has('error'))

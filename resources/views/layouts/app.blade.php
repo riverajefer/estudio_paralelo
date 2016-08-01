@@ -10,9 +10,10 @@
 
     <title>Admin</title>
     <!-- Incluye  estilos -->
+    @yield('head')
     @include('includes/main/estilos')
     @include('includes/admin/estilos')
-    @yield('head')
+    
 </head>
 <body>
 
