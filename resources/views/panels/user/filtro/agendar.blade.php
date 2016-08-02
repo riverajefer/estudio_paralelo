@@ -17,43 +17,29 @@
 		@endif
 
 	  <div class="row">
-	    <form class="col s12">
+	    <div class="col s12">
 	      <div class="row">
 	        <div class="form-group col s6">
 	          <i class="material-icons prefix">today</i>
-	          <input type="date" class="datepicker" id="fecha" name="fecha" placeholder="Fecha">
+	          <input type="date" class="datepicker" id="fecha" name="fecha" placeholder="Fecha" required>
 	        </div>
 	        <div class="form-group col s6">
 	          <i class="material-icons prefix">av_timer</i>
 	          <input type="datetime" class="timepicker" id="hora" name="hora" placeholder="Hora">
 	        </div>
 	      </div>
-	    </form>
+	    </div>
 	  </div>
 
 		<div class="form-group">
 			{!! Form::textarea('observaciones', Null, array('class'=>'materialize-textarea', 'id'=>'observaciones', 'placeholder'=>'Observaciones')) !!}
 			<label for="observaciones">Observaciones</label>
 		</div>
-
-        <div align="center" class="form-group">
+		<div align="center">
           {!! Form::submit('Finalizar', array( 'class'=>'btn waves-effect waves-light btn-azul' )) !!}
         </div>
 
 
 	{!! Form::close() !!}	
 
-@stop
-
-
-@section('footer')
-<script>
-   $('.datepicker').pickadate({
-    selectMonths: true, // Creates a dropdown to control month
-    selectYears: 15, // Creates a dropdown of 15 years to control year
-	format: 'dd/mm/yyyy' 
-  });
-
-   $('.timepicker').pickatime()	
-</script>
 @stop

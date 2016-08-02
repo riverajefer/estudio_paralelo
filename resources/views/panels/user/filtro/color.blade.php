@@ -12,15 +12,15 @@
 			Room designs start at just $299.
 	    </p>
 	    <p>&nbsp;</p>
-		<div class="container">
+		<div class="container_">
 		  <div class="row-fluid">
 			<?php $i = 0;?>   
 		    @foreach($colores as $color)
 		    	<?php $i++;?>
-		    	<div class="col-md-4 img-radio">
+		    	<div class="col-md-4 col-sm-6 col-xs-12 img-radio">
 				  <label>
 				    <input type="radio" name="color" value="{{ $color->id}}" />
-				    <img src="{{asset('img/colores/'.$color->img)}}"><br>
+				    <img src="{{asset('img/colores/'.$color->img)}}" width="75%"><br>
 				    <span>{{ $color->titulo }}</span>
 				  </label>		    	
 		    	</div>

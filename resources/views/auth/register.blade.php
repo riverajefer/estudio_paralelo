@@ -117,15 +117,13 @@
       <input type="checkbox" class="filled-in" id="remember" name="remember" />
       <label for="remember">Acepto terminos y condiciones</label>
 
-        <div class="g-recaptcha" data-sitekey="{{ env('RE_CAP_SITE') }}"></div>
+        <div class="g-recaptcha" style="transform:scale(0.8);transform-origin:0 0" data-sitekey="{{ env('RE_CAP_SITE') }}"></div>
         <hr>
 
         <button class="btn btn-lg btn-primary btn-block register-btn" type="submit">
-        Continua
+        COMIENZA
         </button>
-
-        <p class="or-social"> ó </p>
-
+        <br>
         <a href="{{ route('social.redirect', ['provider' => 'facebook']) }}" class="btn btn-lg btn-primary btn-block facebook" type="submit">
         Inicia sesión con Facebook
         </a>
@@ -137,7 +135,9 @@
         {!! Form::close() !!}
     </div>
 </div>
-
+<br>
+<br>
+<br>
 @stop
 
 @section('footer')

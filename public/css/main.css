@@ -40,7 +40,7 @@ body {
 	margin:0;
 	padding:0;
 	height:100%;
-  font-family:'Conv_Montserrat-Regular',Sans-Serif;
+  font-family: Arial,Helvetica Neue,Helvetica,sans-serif; 
 }
 #wrapper {
 	min-height:100%;
@@ -207,8 +207,7 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
 
 
 .btn-azul{
-  font-family: 'Conv_Montserrat-Bold',Sans-Serif;
-	background-color: #002F56;
+	background-color: #00172D;
 }
 .btn-azul:hover{
 	background-color: #83A5C5;
@@ -318,12 +317,12 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
 .facebook{
     background-color: #3B5998;
     border-color: #4863ae;
-    border-radius: 0px;
+    border-radius: 8px;
     height: 45px;
-    padding-top: 2px;
+    padding-top: 5px;
     text-transform: none;
-    font-family: 'Conv_Montserrat-Bold',Sans-Serif;
     box-shadow: none;
+    text-transform: uppercase;
 }
 .btn{
     box-shadow: none;
@@ -397,9 +396,9 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
     border-bottom-right-radius: 4px;
 }
 .register-btn{
-    background-color: #002F56;
+    background-color: #00172D;
     margin-top:10px;
-    border-radius: 0px;
+    border-radius: 8px;
     height: 45px;
 }
 
@@ -450,6 +449,7 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
     font-size: 17px;
     padding: 0px 60px;
     color: #002F56;
+    font-family: 'Questrial', sans-serif;
 }
 .form-signin_ .row{
     margin-bottom: 0px !important;
@@ -504,5 +504,9 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
 
 .waves-effect input[type="button"], .waves-effect input[type="reset"], .waves-effect input[type="submit"] {
     cursor: pointer;
+}
+
+.img-radio-espacios{
+  padding: 10px 20px;
 }
 

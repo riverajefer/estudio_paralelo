@@ -31,9 +31,19 @@ Route::group(['prefix' => 'user', 'middleware' => 'auth:user'], function()
 {
     Route::get('/', ['as' =>'user.home', 'uses' => 'UserController@getHome']);
     Route::get('seleccione_espacio', ['as' => 'user.seleccione_espacio','uses' => 'User\FiltroController@setEspacio']);
+    Route::post('seleccione_espacio', ['as' => 'user.seleccione_espacio','uses' => 'User\FiltroController@postEspacio']);
+
     Route::get('seleccione_estilo',  ['as' => 'user.seleccione_estilo','uses' => 'User\FiltroController@setEstilo']);
+    Route::post('seleccione_estilo',  ['as' => 'user.seleccione_estilo','uses' => 'User\FiltroController@postEstilo']);
+
     Route::get('seleccione_color',   ['as' => 'user.seleccione_color','uses' => 'User\FiltroController@setColor']);
+    Route::post('seleccione_color',   ['as' => 'user.seleccione_color','uses' => 'User\FiltroController@postColor']);
+
+
     Route::get('seleccione_referentes', ['as' => 'user.seleccione_referentes','uses' => 'User\FiltroController@setReferentes']);
+    Route::post('seleccione_referentes', ['as' => 'user.seleccione_referentes','uses' => 'User\FiltroController@postReferentes']);
+
+
     Route::get('subir_referente', ['as' => 'user.subir_referente','uses' => 'User\FiltroController@setReferentesUser']);
     Route::post('subir_referente', ['as' => 'user.post_subir_referente','uses' => 'User\FiltroController@postReferentesUser']);
 
@@ -53,6 +63,10 @@ Route::group(['prefix' => 'user', 'middleware' => 'auth:user'], function()
 
     Route::get('encuesta_terminada', ['as' => 'user.encuesta_terminada','uses' => 'User\FiltroController@setEncuestaTerminada']);
 
+    Route::get('test', function(){
+        return Auth::user()->id;
+        return "test";
+    });
 
 });
 

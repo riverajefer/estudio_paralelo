@@ -52,14 +52,12 @@
       <br><br>
                
 
-        <button class="btn waves-effect waves-light btn-lg btn-primary btn-block login-btn" type="submit">
+        <button class="btn btn-lg btn-primary btn-block register-btn" type="submit">
             Ingresar
         </button>
         <p class="enlace_rpw">
             <a href="{{ route('auth.password') }}" >Olvide mi contraseña</a>
         </p>
-
-        <p class="or-social">Ó</p>
 
         <a href="{{ route('social.redirect', ['provider' => 'facebook']) }}" class="btn btn-lg btn-primary btn-block facebook" type="submit">Ingresar con Facebook</a>
 
@@ -70,7 +68,9 @@
         
     </div>
 </div>
-
+<br>
+<br>
+<br>
    
 @stop
 

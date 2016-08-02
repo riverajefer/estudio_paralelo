@@ -11,9 +11,7 @@
 			Room designs start at just $299.
 	    </p>
 	    <p>&nbsp;</p>
-	<div align="center" style="min-height:55px">
- 		<button class="btn waves-effect waves-light btn-azul" id ="siguiente_referente" disabled  name="action">Siguiente</button>
-	</div>	    
+    
 		<div class="container_">
 			@for ($i = 0; $i <= 4; $i++)
 			    @foreach($referentes as $referente)
@@ -31,6 +29,10 @@
      	</div>
 	<br>
    </div>
+   <br><br><br>
+	<div align="center" style="min-height:55px">
+ 		<button class="btn waves-effect waves-light btn-azul" id ="siguiente_referente" disabled  name="action">Siguiente</button>
+	</div>			   
   <!-- Modal Structure -->
 <div class="modal fade bs-example-modal-sm" tabindex="-1" id="myModal" role="dialog" aria-labelledby="mySmallModalLabel">
   <div class="modal-dialog modal-sm" role="document">

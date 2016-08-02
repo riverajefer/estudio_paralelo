@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-07-2016 a las 00:05:26
+-- Tiempo de generación: 03-08-2016 a las 00:18:44
 -- Versión del servidor: 5.6.21
 -- Versión de PHP: 5.5.19
 
@@ -40,9 +40,9 @@ CREATE TABLE IF NOT EXISTS `colors` (
 --
 
 INSERT INTO `colors` (`id`, `titulo`, `img`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Color 1', 'color1.png', '2016-07-26 04:24:40', '2016-07-26 04:24:40', NULL),
-(2, 'Color 2', 'color2.png', '2016-07-26 04:24:50', '2016-07-26 04:24:50', NULL),
-(3, 'Color 3', 'color3.png', '2016-07-26 04:25:00', '2016-07-26 04:25:00', NULL);
+(1, 'Calido', 'calido.png', '2016-07-26 04:24:40', '2016-07-26 04:24:40', NULL),
+(2, 'Neutro', 'neutro.png', '2016-07-26 04:24:50', '2016-07-26 04:24:50', NULL),
+(3, 'Frio', 'frio.png', '2016-07-26 04:25:00', '2016-07-26 04:25:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -95,8 +95,33 @@ CREATE TABLE IF NOT EXISTS `estilos` (
 
 INSERT INTO `estilos` (`id`, `titulo`, `img`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (1, 'Clasico', 'clasico.png', '2016-07-25 21:04:05', '2016-07-25 21:04:05', NULL),
-(2, 'Moderno', 'moderno.png', '2016-07-25 21:04:23', '2016-07-25 21:04:23', NULL),
-(3, 'Equilibrado', 'equilibrado.png', '2016-07-26 03:49:01', '2016-07-26 03:49:01', NULL);
+(2, 'Equilibrado', 'equilibrado.png', '2016-07-25 21:04:23', '2016-07-25 21:04:23', NULL),
+(3, 'Moderno', 'moderno.png', '2016-07-26 03:49:01', '2016-07-26 03:49:01', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `filtro`
+--
+
+CREATE TABLE IF NOT EXISTS `filtro` (
+`id` int(10) unsigned NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `espacio_id` int(11) NOT NULL,
+  `estilo_id` int(11) NOT NULL,
+  `color_id` int(11) NOT NULL,
+  `plano` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `referente` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `filtro`
+--
+
+INSERT INTO `filtro` (`id`, `user_id`, `espacio_id`, `estilo_id`, `color_id`, `plano`, `referente`, `created_at`, `updated_at`) VALUES
+(1, 11, 8, 0, 0, NULL, NULL, '2016-08-03 03:18:12', '2016-08-03 03:18:12');
 
 -- --------------------------------------------------------
 
@@ -127,7 +152,8 @@ INSERT INTO `migrations` (`migration`, `batch`) VALUES
 ('2016_07_15_222642_create_estilos_table', 7),
 ('2016_07_25_155936_create_espacios_table', 7),
 ('2016_07_25_231635_create_colors_table', 8),
-('2016_07_26_163238_create_referentes_table', 9);
+('2016_07_26_163238_create_referentes_table', 9),
+('2016_08_02_203640_create_filtro_table', 10);
 
 -- --------------------------------------------------------
 
@@ -268,7 +294,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `tel`, `email`, `filtro`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (4, 'Jeferson', 'Rivera', '', 'jefersonpatino@yahoo.es', 0, NULL, '1BtN6nYVeJuJnsF4cqYXwjJiicyLgB31jbRnmzjV2CET4lZbATfbLW6uxAdB', '2016-06-15 03:36:35', '2016-07-15 22:06:34'),
 (6, 'Jefferson', 'Rivera', '', 'riverajefer@gmail.com', 0, '$2y$10$4iSqnXP3eGsWq0znPnJcS.PapBb8jxg2kJMsyN4v19CA8AZmzhOxC', 'Y7FdshnlawqwZ7VBCox5w5mNOnWe9J6Hmd9oS71U5nSnpnxt5K23QyKmr0gu', '2016-07-11 04:25:59', '2016-07-25 21:46:56'),
-(11, 'Juan', 'Doe', '32323787', 'jrivera@bancoink.com', 0, '$2y$10$wPgsTEIeHauoDGaE70PJsOV5zZRDcpzmiicIguAEEZamuR2og8FHm', 'v4qldiPOMKMGaqnmBvgtLxyKtsRlUvNUyeyCbUMA1soOH7LyM6jofO1S3R0Z', '2016-07-25 22:07:28', '2016-07-27 02:33:04');
+(11, 'Juan', 'Doe', '32323787', 'jrivera@bancoink.com', 0, '$2y$10$wPgsTEIeHauoDGaE70PJsOV5zZRDcpzmiicIguAEEZamuR2og8FHm', 'o8KFwA2XKgnzUdtFuulpwOuLNVbIBxmLQ0ncKczPP4woiY4NQIl36lkgKVtT', '2016-07-25 22:07:28', '2016-08-03 01:21:35');
 
 --
 -- Índices para tablas volcadas
@@ -290,6 +316,12 @@ ALTER TABLE `espacios`
 -- Indices de la tabla `estilos`
 --
 ALTER TABLE `estilos`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `filtro`
+--
+ALTER TABLE `filtro`
  ADD PRIMARY KEY (`id`);
 
 --
@@ -347,6 +379,11 @@ MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
 --
 ALTER TABLE `estilos`
 MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT de la tabla `filtro`
+--
+ALTER TABLE `filtro`
+MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `password_resets`
 --

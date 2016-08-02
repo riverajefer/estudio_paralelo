@@ -12,6 +12,7 @@ use App\Models\Estilo;
 use App\Models\Color;
 use App\Models\Referente;
 use Illuminate\Http\Request;
+use App\Models\Filtro;
 
 class FiltroController extends Controller {
 
@@ -21,10 +22,27 @@ class FiltroController extends Controller {
     	return view('panels.user.filtro.espacio')->with('espacios', $espacios);
     }
 
+    public function postEspacio(Request $request)
+    {
+      $filtro = new Filtro();
+      $filtro->user_id = Auth::user()->id;
+      $filtro->espacio_id = $request->input('espacio');
+      $filtro->save();
+      return Redirect::to('user/seleccione_estilo');
+      return "post espacio";
+    }
+
+
     public function setEstilo()
     {
     	$estilos = Estilo::all();
     	return view('panels.user.filtro.estilo')->with('estilos', $estilos);
+    } 
+
+
+    public function postEstilo(Request $request)
+    {
+      return Redirect::to('user/seleccione_color');
     } 
 
     public function setColor()
@@ -33,11 +51,27 @@ class FiltroController extends Controller {
     	return view('panels.user.filtro.color')->with('colores', $colores);
     }  
 
+
+    public function postColor(Request $request)
+    {
+      return Redirect::to('user/seleccione_referentes');
+    }  
+
+
+
     public function setReferentes()
     {
         $referentes = Referente::all();
         return view('panels.user.filtro.referentes')->with('referentes', $referentes);
     }  
+
+
+    public function postReferentes(Request $request)
+    {
+      return Redirect::to('user/subir_referente');
+    } 
+
+
 
     public function setReferentesUser()
     {
@@ -235,8 +269,10 @@ class FiltroController extends Controller {
         return view('panels.user.filtro.agendar');
     } 
 
-    public function postAgendar()
+    public function postAgendar(Request $request)
     {
+        return Redirect::to('user/encuesta_terminada');
+        return $name = $request->input('fecha');
         return "Post agendar";
     } 
 

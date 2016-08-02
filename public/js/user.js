@@ -5,13 +5,15 @@ $('input[name=espacio]').click(function(){
 	$("#siguiente_espacio").prop("disabled", false);
 });
 
-$("#siguiente_espacio").click(function(){
+$("#formEspacio").submit(function(){
 
 	if($('input[name=espacio]:checked').length<=0)
 	{
 	  alert("Seleccione un espacio")
+	  return false;
 	}
-	window.location.href = "seleccione_estilo";
+	return true;
+	//window.location.href = "seleccione_estilo";
 
 });
 
@@ -34,8 +36,6 @@ $("#siguiente_estilo").click(function(){
 $('input[name=color]').click(function(){
 	$("#siguiente_color").prop("disabled", false);
 });
-
-
 
 
 $("#siguiente_color").click(function(){
@@ -126,10 +126,21 @@ $("#file6").filestyle({
 });
 
 
-   $('.datepicker').pickadate({
-    selectMonths: true, // Creates a dropdown to control month
-    selectYears: 15, // Creates a dropdown of 15 years to control year
-	format: 'dd/mm/yyyy' 
-  });
+ $( document ).ready(function() {
+	   $('.datepicker').pickadate({
+	    selectMonths: true, // Creates a dropdown to control month
+	    selectYears: 15, // Creates a dropdown of 15 years to control year
+		format: 'dd/mm/yyyy' 
+	  });
 
-   $('.timepicker').pickatime()
+	   $('.timepicker').pickatime()
+ });
+
+
+
+ $('input[name=group1]').click(function(){
+ 	console.log("Click")
+
+
+	
+});
