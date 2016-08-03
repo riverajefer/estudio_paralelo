@@ -81,4 +81,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     {
         return $this->hasMany('App\Models\Social');
     }
+
+
+    public function referentes(){
+        return $this->belongsToMany('App\Models\Referente', 'referente_user', 'user_id', 'referente_id')->withTimestamps();
+    }
 }

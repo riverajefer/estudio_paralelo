@@ -64,8 +64,11 @@ Route::group(['prefix' => 'user', 'middleware' => 'auth:user'], function()
     Route::get('encuesta_terminada', ['as' => 'user.encuesta_terminada','uses' => 'User\FiltroController@setEncuestaTerminada']);
 
     Route::get('test', function(){
-        return Auth::user()->id;
-        return "test";
+        $user = App\Models\User::find(11);
+        $sql = $user->referentes()->attach(1);
+        return $sql;
+
+       return "test";
     });
 
 });

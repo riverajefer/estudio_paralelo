@@ -510,3 +510,26 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
   padding: 10px 20px;
 }
 
+.espacio_v1{
+  margin:10px 0px;
+}
+
+.espacio_v2{
+  margin:20px 0px;
+}
+
+.espacio_v3{
+  margin:30px 0px;
+}
+
+.espacio_v4{
+  margin:40px 0px;
+}
+
+.espacio_v5{
+  margin:50px 0px;
+}
+
+.espacio_v6{
+  margin:60px 0px;
+}

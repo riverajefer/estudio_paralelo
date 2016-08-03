@@ -10,11 +10,19 @@ use App\Http\Controllers\Controller;
 use App\Models\Espacio;
 use App\Models\Estilo;
 use App\Models\Color;
+use App\Models\User;
 use App\Models\Referente;
 use Illuminate\Http\Request;
 use App\Models\Filtro;
+use DB;
 
 class FiltroController extends Controller {
+
+    protected $user_id;
+
+    public function __construct(){
+      $this->user_id = Auth::user()->id;
+    }
 
     public function setEspacio()
     {
@@ -24,12 +32,19 @@ class FiltroController extends Controller {
 
     public function postEspacio(Request $request)
     {
-      $filtro = new Filtro();
-      $filtro->user_id = Auth::user()->id;
+
+      $getFiltro = DB::table('filtro')->where('user_id', $this->user_id)->first();
+
+      if(empty($getFiltro)){
+          $filtro = new Filtro();
+          $filtro->user_id = $this->user_id;
+        }else{
+          $filtro = Filtro::find($getFiltro->id);
+        }
+
       $filtro->espacio_id = $request->input('espacio');
-      $filtro->save();
+      $filtro->save();    
       return Redirect::to('user/seleccione_estilo');
-      return "post espacio";
     }
 
 
@@ -42,6 +57,19 @@ class FiltroController extends Controller {
 
     public function postEstilo(Request $request)
     {
+
+      $getFiltro = DB::table('filtro')->where('user_id', $this->user_id)->first();
+
+      if(empty($getFiltro)){
+          $filtro = new Filtro();
+          $filtro->user_id = $this->user_id;
+        }else{
+          $filtro->save();          
+        }
+
+      $filtro = Filtro::find($getFiltro->id);
+      $filtro->estilo_id = $request->input('estilo');
+
       return Redirect::to('user/seleccione_color');
     } 
 
@@ -54,6 +82,19 @@ class FiltroController extends Controller {
 
     public function postColor(Request $request)
     {
+
+      $getFiltro = DB::table('filtro')->where('user_id', $this->user_id)->first();
+
+      if(empty($getFiltro)){
+          $filtro = new Filtro();
+          $filtro->user_id = $this->user_id;
+        }else{
+          $filtro = Filtro::find($getFiltro->id);
+        }
+
+        $filtro->color_id = $request->input('color');
+        $filtro->save();          
+
       return Redirect::to('user/seleccione_referentes');
     }  
 
@@ -68,10 +109,13 @@ class FiltroController extends Controller {
 
     public function postReferentes(Request $request)
     {
+
+      $user = User::find($this->user_id);
+      $ref  = $request->input('referente');
+      $user->referentes()->sync($ref);
       return Redirect::to('user/subir_referente');
+
     } 
-
-
 
     public function setReferentesUser()
     {
@@ -84,9 +128,6 @@ class FiltroController extends Controller {
       if (!$request->hasFile('image')) {
          return Redirect::to('user/tienes_plano');
       }
-      //var_dump(Input::file('image'));
-        /*if(empty(Input::file('image'))){
-        }*/
 
         $file  = array('image' => Input::file('image'));
         $rules = array('image' => 'mimes:jpeg,jpg,bmp,png,gif|max:6000'); 
@@ -103,7 +144,18 @@ class FiltroController extends Controller {
           $fileName  = 'referente.'.$extension;
           Input::file('image')->move($destinationPath, $fileName); 
           Session::flash('success', 'Upload successfully'); 
+
           // guardar el registro en la BD
+          $getFiltro = DB::table('filtro')->where('user_id', $this->user_id)->first();
+          if(empty($getFiltro)){
+            $filtro = new Filtro();
+            $filtro->user_id = $this->user_id;
+          }else{
+            $filtro = Filtro::find($getFiltro->id);
+          }
+          $filtro->referente = $fileName;
+          $filtro->save();
+
           return Redirect::to('user/tienes_plano');
         }
         else {
@@ -123,7 +175,7 @@ class FiltroController extends Controller {
     } 
 
 
-    public function postSubirPlano()
+    public function postSubirPlano(Request $request)
     {
 
         $file  = array('plano' => Input::file('plano'));
@@ -140,9 +192,19 @@ class FiltroController extends Controller {
           $fileName  = 'plano.'.$extension;
           Input::file('plano')->move($destinationPath, $fileName); 
           Session::flash('success', 'Upload successfully'); 
-          // guardar el registro en la BD
+
+          // Guardar el Registro en la BD
+          $getFiltro = DB::table('filtro')->where('user_id', $this->user_id)->first();
+          if(empty($getFiltro)){
+            $filtro = new Filtro();
+            $filtro->user_id = $this->user_id;
+          }else{
+            $filtro = Filtro::find($getFiltro->id);
+          }
+          $filtro->plano = $fileName;
+          $filtro->save();
+
           return Redirect::to('user/deseas_subir_espacios');
-          return "Ok";
         }
         else {
           Session::flash('error', 'Error: el archivo subido no es válido');
@@ -161,7 +223,7 @@ class FiltroController extends Controller {
         return view('panels.user.filtro.subir_espacios');
     } 
 
-    public function postSubirEspacios()
+    public function postSubirEspacios(Request $request)
     {
 
         $espacio1  = array('espacio1' => Input::file('espacio1'));

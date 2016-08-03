@@ -13,6 +13,7 @@
 	    </p>
 	    <p>&nbsp;</p>
 		<div class="container">
+		{!! Form::open(['action'=>'User\FiltroController@postEstilo', 'id'=>'formEstilo']) !!}
 		  <div class="row-fluid">
 			<?php $i = 0;?>   
 		    @foreach($estilos as $estilo)
@@ -33,7 +34,7 @@
 	<div align="center">
  		<button class="btn waves-effect waves-light btn-azul" id ="siguiente_estilo" disabled name="action">Siguiente</button>
 	</div>
-
+	{!! Form::close() !!}
    </div>
 
 

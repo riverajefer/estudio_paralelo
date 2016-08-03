@@ -13,25 +13,47 @@ $("#formEspacio").submit(function(){
 	  return false;
 	}
 	return true;
-	//window.location.href = "seleccione_estilo";
-
 });
+
+
+$("#formEstilo").submit(function(){
+
+	if($('input[name=estilo]:checked').length<=0)
+	{
+	  alert("Seleccione un estilo")
+	  return false;
+	}
+	return true;
+});
+
+
+$("#formColor").submit(function(){
+
+	if($('input[name=color]:checked').length<=0)
+	{
+	  alert("Seleccione un color")
+	  return false;
+	}
+	return true;
+});
+
+
+$("#formReferenteUSer").submit(function(){
+	if($('.sreferente:checked').length<=0)
+	{
+	  alert("Seleccione almenos un referente")
+	  return false;
+	}
+	return true;
+});
+
 
 
 $('input[name=estilo]').click(function(){
 	$("#siguiente_estilo").prop("disabled", false);
 });
 
-$("#siguiente_estilo").click(function(){
 
-	if($('input[name=estilo]:checked').length<=0)
-	{
-	  alert("Seleccione un estilo")
-	}
-
-	window.location.href = "seleccione_color";
-
-});
 
 $('input[name=color]').click(function(){
 	$("#siguiente_color").prop("disabled", false);
@@ -44,36 +66,27 @@ $("#siguiente_color").click(function(){
 	{
 	  alert("Seleccione un color")
 	}
-	window.location.href = "seleccione_referentes";
-
+	return true;
 });
 
 
-$('input[name=referente]').click(function(){
+$('.sreferente').click(function(){
 	$("#siguiente_referente").prop("disabled", false);
 	
-	var numberOfChecked = $('input[name=referente]:checked').length;
+	var numberOfChecked = $('.sreferente:checked').length;
 	if(numberOfChecked>4){
 		$(this).prop( "checked", false );
-		$("input[name=referente]:not(:checked)").prop("disabled", true);
+		$(".sreferente:not(:checked)").prop("disabled", true);
 		$('#myModal').modal('show')
 	}
 	else if(numberOfChecked==0){
 		 $("#siguiente_referente").hide();
 	}
 	else if(numberOfChecked<4){
-		$("input[name=referente]:not(:checked)").prop("disabled", false);
+		$(".sreferente:not(:checked)").prop("disabled", false);
 	}
 
 });
-
-
-$("#siguiente_referente").click(function(){
-
-	window.location.href = "subir_referente";
-
-});
-
 
 
 $("#file1").filestyle({
