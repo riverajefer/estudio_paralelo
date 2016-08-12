@@ -33,7 +33,7 @@
 		<p class="errors_img">{!!$errors->first('espacio4')!!}</p>			
 
         <div class="form-group">
- 		<button class="btn waves-effect waves-light btn-azul" id ="siguiente_imgespacio"  name="action">Siguiente</button>
+ 		<button class="btn waves-effect waves-light btn-azul" id ="siguiente_imgespacio"  name="action">CONTINUA</button>
 
         </div>
     {!! Form::close() !!}

@@ -70,23 +70,45 @@ $("#siguiente_color").click(function(){
 });
 
 
+
 $('.sreferente').click(function(){
+	console.log($(this).siblings('span'))
+	$(".sreferente:checked").siblings('span').show();
+	$(".sreferente:not(:checked)").siblings('span').hide();
 	$("#siguiente_referente").prop("disabled", false);
 	
 	var numberOfChecked = $('.sreferente:checked').length;
 	if(numberOfChecked>4){
 		$(this).prop( "checked", false );
 		$(".sreferente:not(:checked)").prop("disabled", true);
+		$(".sreferente:not(:checked)").siblings('span').hide();
 		$('#myModal').modal('show')
+
 	}
 	else if(numberOfChecked==0){
 		 $("#siguiente_referente").hide();
+		 //$(this).siblings('span').hide();
+		 $(".sreferente:checked").siblings('span').hide();
+		 $(".sreferente:not(:checked)").siblings('span').hide();
 	}
 	else if(numberOfChecked<4){
 		$(".sreferente:not(:checked)").prop("disabled", false);
+		$(".sreferente:not(:checked)").siblings('span').hide();
+
 	}
 
 });
+/*
+$( ".img-check" ).hover(
+  function() {
+  	console.log("hover");
+    $(this).find('.ref_check').show();
+  }, function() {
+  	console.log("Rolhover");
+    $(this).find('.ref_check').hide();
+  }
+);
+*/
 
 
 $("#file1").filestyle({
@@ -154,6 +176,10 @@ $("#file6").filestyle({
  $('input[name=group1]').click(function(){
  	console.log("Click")
 
-
 	
 });
+
+
+
+
+

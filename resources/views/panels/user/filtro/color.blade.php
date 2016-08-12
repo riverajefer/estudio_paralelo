@@ -6,7 +6,7 @@
   
 
 	<div class="panel_espacio">
-	    <h1>Selecciona tu color</h1>
+	    <h1>Escoje la tonalidad que más se ajuste a tu espacio</h1>
 	    <p>
 	    	Hand-picked professional interior designers. <br>
 			Room designs start at just $299.
@@ -32,7 +32,7 @@
 	</div>
 	<br>
 	<div align="center">
- 		<button class="btn waves-effect waves-light btn-azul" id ="siguiente_color" disabled name="action">Siguiente</button>
+ 		<button class="btn waves-effect waves-light btn-azul" id ="siguiente_color" disabled name="action">CONTINUA</button>
 	</div>
 	{!! Form::close() !!}
    </div>

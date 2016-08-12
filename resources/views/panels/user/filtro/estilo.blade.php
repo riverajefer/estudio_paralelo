@@ -32,7 +32,7 @@
 	</div>
 	<br>
 	<div align="center">
- 		<button class="btn waves-effect waves-light btn-azul" id ="siguiente_estilo" disabled name="action">Siguiente</button>
+ 		<button class="btn waves-effect waves-light btn-azul" id ="siguiente_estilo" disabled name="action">CONTINUA</button>
 	</div>
 	{!! Form::close() !!}
    </div>

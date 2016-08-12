@@ -7,20 +7,19 @@
 
 @section('content')
 
+<div class="form-signin">
+    <h1>
+        Diseña tu espacio soñado con nuestro equipo de interioristas profesionales en 4 sencillos pasos
+    </h1>
+    <h2>
+        Hand-picked professional interior designers. <br>
+        Room designs start at just $299.
+    </h2>
+</div>
 <div class="row">
-    <div class="col s8 offset-s2">
 
+    <div class="col s6 offset-s3">
         {!! Form::open(['url' => route('auth.register-post'), 'class' => 'form-signin_', 'data-parsley-validate' ] ) !!}
-        
-        <div class="form-signin">
-            <h1>
-                Diseña tu espacio soñado con nuestro equipo de interioristas profesionales en 4 sencillos pasos
-            </h1>
-            <h2>
-                Hand-picked professional interior designers.
-                Room designs start at just $299.
-            </h2>
-        </div>
         
         @include('includes.errors')
         <div class="row">
@@ -117,7 +116,7 @@
       <input type="checkbox" class="filled-in" id="remember" name="remember" />
       <label for="remember">Acepto terminos y condiciones</label>
 
-        <div class="g-recaptcha" style="transform:scale(0.8);transform-origin:0 0" data-sitekey="{{ env('RE_CAP_SITE') }}"></div>
+        <div align="right" class="g-recaptcha" style="position: relative; float: right; right: -62px; transform:scale(0.8);transform-origin:0 0;" data-sitekey="{{ env('RE_CAP_SITE') }}"></div>
         <hr>
 
         <button class="btn btn-lg btn-primary btn-block register-btn" type="submit">
@@ -127,10 +126,11 @@
         <a href="{{ route('social.redirect', ['provider' => 'facebook']) }}" class="btn btn-lg btn-primary btn-block facebook" type="submit">
         Inicia sesión con Facebook
         </a>
-
-        <a href="{{ route('auth.login') }}" class="enlace_rl">
-            <p>YA ESTOY REGISTRADO</p>
-        </a>
+        <div class="row elf">
+            <div class="col-md-12">
+                <p>¿Ya estas registrado?, Inicia tu sesión <a href="{{ route('auth.login') }}"> aquí </a></p>
+            </div>
+        </div>        
 
         {!! Form::close() !!}
     </div>

@@ -60,8 +60,8 @@ class FiltroController extends Controller {
 
       $getFiltro = DB::table('filtro')->where('user_id', $this->user_id)->first();
 
+      $filtro = new Filtro();
       if(empty($getFiltro)){
-          $filtro = new Filtro();
           $filtro->user_id = $this->user_id;
         }else{
           $filtro->save();          

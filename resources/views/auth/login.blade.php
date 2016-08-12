@@ -12,10 +12,12 @@
     <div class="col s6 offset-s3">
 
      {!! Form::open(['url' => route('auth.login-post'), 'class' => 'acceder', 'data-parsley-validate' ] ) !!}
-
         
-
-        <h2 class="form-signin-heading">Acceder</h2>
+        <h2 class="form-signin-heading">Inicia tu sesión</h2>
+        <p class="copi_login">
+            Hand-picked professional interior designers. <br>
+            Room designs start at just $299.
+        </p>
 
         <div class="row">
             <div class="input-field col s12">
@@ -42,7 +44,7 @@
                 'data-parsley-minlength'        => '6',
                 'data-parsley-maxlength'        => '20'
             ]) !!}
-            <label for="inputPassword">Password</label>
+            <label for="inputPassword">Contraseña</label>
         </div>
       </div>
 
@@ -51,19 +53,21 @@
       @include('includes.status')
       <br><br>
                
-
         <button class="btn btn-lg btn-primary btn-block register-btn" type="submit">
-            Ingresar
+            COMIENZA
         </button>
-        <p class="enlace_rpw">
-            <a href="{{ route('auth.password') }}" >Olvide mi contraseña</a>
-        </p>
-
-        <a href="{{ route('social.redirect', ['provider' => 'facebook']) }}" class="btn btn-lg btn-primary btn-block facebook" type="submit">Ingresar con Facebook</a>
-
-        <a href="{{ route('auth.register') }}" class="enlace_rl">
-            <p>REGISTRARME</p>
+        <br>
+        <a href="{{ route('social.redirect', ['provider' => 'facebook']) }}" class="btn btn-lg btn-primary btn-block facebook" type="submit">
+            INICIA SESIÓN CON FACEBOOK
         </a>
+        <div class="row elf">
+            <div class="col-md-6 bv">
+                <a href="{{ route('auth.password') }}" >¿Olvidaste tu contraseña? </a>
+            </div>
+            <div class="col-md-6">
+                 <a href="{{ route('auth.register') }}" class="enlace_rl"> ¿Aún no estas registrado?</a>           
+            </div>
+        </div>
         {!! Form::close() !!}
         
     </div>

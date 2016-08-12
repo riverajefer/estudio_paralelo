@@ -29,7 +29,7 @@
      	</div>
 
 		<div align="center">
-	 		<button class="btn waves-effect waves-light btn-azul" id ="siguiente_espacio" disabled name="action">Siguiente</button>
+	 		<button class="btn waves-effect waves-light btn-azul" id ="siguiente_espacio" disabled name="action">CONTINUA</button>
 		</div>	
 
 		{!! Form::close() !!}
