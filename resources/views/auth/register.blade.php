@@ -9,7 +9,8 @@
 
 <div class="form-signin">
     <h1>
-        Diseña tu espacio soñado con nuestro equipo de interioristas profesionales en 4 sencillos pasos
+        Diseña tu espacio soñado con nuestro equipo <br>
+         de interioristas profesionales en 4 sencillos pasos
     </h1>
     <h2>
         Hand-picked professional interior designers. <br>

@@ -6,7 +6,7 @@
   
 
 	<div class="panel_espacio">
-	    <h1>Escoje la tonalidad que más se ajuste a tu espacio</h1>
+	    <h1>Escoje la tonalidad que más <br> se ajuste a tu espacio</h1>
 	    <p>
 	    	Hand-picked professional interior designers. <br>
 			Room designs start at just $299.

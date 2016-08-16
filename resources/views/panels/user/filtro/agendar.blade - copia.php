@@ -17,14 +17,17 @@
 		@if(Session::has('error'))
 			<p class="errors">{!! Session::get('error') !!}</p>
 		@endif
-	<br><br>
+
 	  <div class="row">
 	    <div class="col s12">
 	      <div class="row">
-	        <div class="form-group col s12" style="text-align:center">
-	          <img src="{{ asset('img/varios/calendar.png') }}">
-	          <br><br>
-	          <input type="date" class="datepicker_ s_fecha" id="fecha" name="fecha" placeholder="Fecha" required>
+	        <div class="form-group col s6">
+	          <i class="material-icons prefix">today</i>
+	          <input type="date" class="datepicker" id="fecha" name="fecha" placeholder="Fecha" required>
+	        </div>
+	        <div class="form-group col s6">
+	          <i class="material-icons prefix">av_timer</i>
+	          <input type="datetime" class="timepicker" id="hora" name="hora" placeholder="Hora">
 	        </div>
 	      </div>
 	    </div>

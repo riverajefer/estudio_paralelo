@@ -53,11 +53,12 @@ body {
 	padding-bottom:100px; /* Height of the footer element */
 }
 #footer {
-	padding: 10px;
+	padding: 5px 0px;
+  margin: 0px;
 	text-align: center;
-	background:#F8F8F8;
+	background:#95a7bc;
 	width:100%;
-	height:100px;
+	height:130px;
 	position:absolute;
 	bottom:0;
 	left:0;
@@ -131,7 +132,7 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
   font-size: 2em;
   color: #00172D;
   font-weight: bold;
-  margin-bottom: 7px;
+  margin-bottom: 12px;
 }
 
 .panel_espacio p{
@@ -171,7 +172,7 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
 }
 
 .img-radio label span{
-  color: #003D8A;
+  color: #00172D;
   font-size: 1.2em;
   text-transform: uppercase;
 }
@@ -213,6 +214,8 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
   width: 200px;
   height: 42px;
   font-size: 17px;
+  margin-bottom: 60px;
+  padding-top: 5px;  
 }
 .btn-azul:hover{
 	background-color: #83A5C5;
@@ -451,7 +454,7 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
 
 .form-signin h2{
     text-align: center;
-    font-size: 17px;
+    font-size: 20px;
     padding: 0px 60px;
     color: #002F56;
     font-family: 'Questrial', sans-serif;
@@ -546,13 +549,15 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
 }
 .elf div a{
   color: #00172d;
-  font-size: 20px;
+  font-size: 17px;
+  font-family: 'Conv_Georgia Italic';
 }
 
 .elf div p{
   text-align: center;
   color: #00172d;
   font-size: 20px;
+  font-family: 'Conv_Georgia Italic';
 }
 .elf div p a{
   text-decoration: underline;
@@ -592,5 +597,43 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
 }
 
 
-.mCS-my-theme.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{ background-color: red; }
-.mCS-my-theme.mCSB_scrollTools .mCSB_draggerRail{ background-color: white; } 
+.mCS-my-theme.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{ background-color: #00172D; }
+.mCS-my-theme.mCSB_scrollTools .mCSB_draggerRail{ background-color: #26a69a; } 
+
+.e_moment {
+  text-align: left;
+}
+.e_moment{
+  padding-left: 20px;
+}
+
+.e_moment a{
+  padding-left: 26px;
+  color: #727e8a;
+}
+.e_moment img{
+  margin-left: 13px;
+}
+
+.glyphicon-cloud-upload:before{
+  content: url(../img/varios/upload_img.png);
+}
+
+input:not([type])[readonly="readonly"], 
+input[type=text]:disabled, 
+input[type=text][readonly="readonly"]
+{
+    color: rgb(21, 19, 19);
+    border-bottom: 1px dotted rgba(0,0,0,0.26);
+}
+
+.icono_fecha{
+}
+
+.s_fecha{
+  padding-left: 36px !important;
+  text-align: center;
+  font-size: 28px !important;
+  color: #00172d !important;
+  border-bottom: 
+}

@@ -14,10 +14,10 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">ACERCA</a></li>
-                <li><a href="#">NOSOTROS</a></li>
-                <li><a href="#">PROYECTOS</a></li>
+                <li><a href="#">CÓMO FUNCIONA</a></li>
                 <li><a href="#">REGALA UN PAQUETE</a></li>
+                <li><a href="#">PROYECTOS</a></li>
+                <li><a href="#">NOSOTROS</a></li>
                 <li><a href="#">MI LISTA</a></li>
                 
                 @if(!Auth::check())

@@ -113,7 +113,7 @@ class FiltroController extends Controller {
       $user = User::find($this->user_id);
       $ref  = $request->input('referente');
       $user->referentes()->sync($ref);
-      return Redirect::to('user/subir_referente');
+      return Redirect::to('user/subir_espacios');
 
     } 
 

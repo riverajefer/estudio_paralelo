@@ -6,7 +6,8 @@
   
 
 	<div class="panel_espacio">
-	    <h1>Selecciona el tipo de espacio</h1>
+	    <h1>Selecciona el tipo de espacio <br>
+			que deseas renovar</h1>
 	    <p>
 	    	Hand-picked professional interior designers. <br>
 			Room designs start at just $299.

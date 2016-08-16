@@ -133,7 +133,7 @@ $("#file3").filestyle({
 	buttonText: "",
 	buttonName: "btn-upload",
 	iconName: "glyphicon glyphicon-cloud-upload",
-	placeholder: "Foto del espacio 1"
+	placeholder: "Imagen 1"
 });
 
 $("#file4").filestyle({
@@ -141,7 +141,7 @@ $("#file4").filestyle({
 	buttonText: "",
 	buttonName: "btn-upload",
 	iconName: "glyphicon glyphicon-cloud-upload",
-	placeholder: "Foto del espacio 2"
+	placeholder: "Imagen 2"
 });
 
 $("#file5").filestyle({
@@ -149,7 +149,7 @@ $("#file5").filestyle({
 	buttonText: "",
 	buttonName: "btn-upload",
 	iconName: "glyphicon glyphicon-cloud-upload",
-	placeholder: "Foto del espacio 3"
+	placeholder: "Imagen 3"
 });
 
 $("#file6").filestyle({
@@ -157,7 +157,7 @@ $("#file6").filestyle({
 	buttonText: "",
 	buttonName: "btn-upload",
 	iconName: "glyphicon glyphicon-cloud-upload",
-	placeholder: "Foto del espacio 4"
+	placeholder: "Imagen 4"
 });
 
 
@@ -181,5 +181,10 @@ $("#file6").filestyle({
 
 
 
+$(window).on("load",function(){
+	    $(".caja_ref").mCustomScrollbar({
+	    	 theme:"my-theme"
+	    });
+	});
 
 

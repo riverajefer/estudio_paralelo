@@ -50,15 +50,4 @@
 	</div>
 	<p class="espacio_v6"></p>
 
-
 @stop
-<script>
-	    (function($){
-        $(window).on("load",function(){
-            $(".caja_ref").mCustomScrollbar({
-            	 theme:"my-theme"
-            });
-        });
-    })(jQuery);
-
-</script>
