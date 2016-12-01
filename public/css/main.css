@@ -601,6 +601,7 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
 .mCS-my-theme.mCSB_scrollTools .mCSB_draggerRail{ background-color: #26a69a; } 
 
 .e_moment {
+  margin-top: 55px;
   text-align: left;
 }
 .e_moment{

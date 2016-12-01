@@ -12,6 +12,7 @@ use App\Models\Estilo;
 use App\Models\Color;
 use App\Models\User;
 use App\Models\Referente;
+use App\Models\FotosEspaciosUser;
 use Illuminate\Http\Request;
 use App\Models\Filtro;
 use DB;
@@ -61,15 +62,15 @@ class FiltroController extends Controller {
       $getFiltro = DB::table('filtro')->where('user_id', $this->user_id)->first();
 
       $filtro = new Filtro();
+
       if(empty($getFiltro)){
           $filtro->user_id = $this->user_id;
         }else{
-          $filtro->save();          
+          $filtro = Filtro::find($getFiltro->id);          
         }
 
-      $filtro = Filtro::find($getFiltro->id);
       $filtro->estilo_id = $request->input('estilo');
-
+      $filtro->save();
       return Redirect::to('user/seleccione_color');
     } 
 
@@ -239,16 +240,27 @@ class FiltroController extends Controller {
           $extension = Input::file('espacio1')->getClientOriginalExtension();
           $fileName  = 'espacio1.'.$extension;
           Input::file('espacio1')->move($destinationPath, $fileName); 
-          Session::flash('success', 'Upload successfully'); 
+          Session::flash('success', 'Upload successfully');
+           
           // guardar el registro en la BD
-          //return Redirect::to('user/subir_espacios');
+          $getFotos = DB::table('fotosespacios_user')->where('user_id', $this->user_id)->where('espacio', 'espacio1')->first();
+          if(empty($getFotos)){
+            $feu = new FotosEspaciosUser();
+            $feu->user_id = $this->user_id;
+            $feu->espacio = 'espacio1';
+          }else{
+            $feu = FotosEspaciosUser::find($getFotos->id);
+          }
+          $feu->img = $fileName;
+          $feu->save();        
+
         }
         else {
           Session::flash('error', 'Error: el archivo subido no es válido');
           return Redirect::back();
         }
 
-        if(!empty(Input::file('espacio2'))){
+        if(Input::file('espacio2')->isValid()){
 
             $espacio2  = array('espacio2' => Input::file('espacio2'));
             $rules = array('espacio2' => 'required|mimes:jpeg,jpg,bmp,png,gif|max:6000'); 
@@ -263,9 +275,19 @@ class FiltroController extends Controller {
               $extension = Input::file('espacio2')->getClientOriginalExtension();
               $fileName  = 'espacio2.'.$extension;
               Input::file('espacio2')->move($destinationPath, $fileName); 
-              Session::flash('success', 'Upload successfully'); 
+              Session::flash('success', 'Upload successfully');
+
               // guardar el registro en la BD
-              //return Redirect::to('user/subir_espacios');
+              $getFotos = DB::table('fotosespacios_user')->where('user_id', $this->user_id)->where('espacio', 'espacio2')->first();
+              if(empty($getFotos)){
+                $feu = new FotosEspaciosUser();
+                $feu->user_id = $this->user_id;
+                $feu->espacio = 'espacio2';
+              }else{
+                $feu = FotosEspaciosUser::find($getFotos->id);
+              }
+              $feu->img = $fileName;
+              $feu->save();
             }
             else {
               Session::flash('error', 'Error: el archivo subido no es válido');
@@ -273,7 +295,7 @@ class FiltroController extends Controller {
             }
         }
 
-        if(!empty(Input::file('espacio3'))){
+        if(Input::file('espacio3')->isValid()){
 
             $espacio3  = array('espacio3' => Input::file('espacio3'));
             $rules = array('espacio3' => 'required|mimes:jpeg,jpg,bmp,png,gif|max:6000'); 
@@ -289,8 +311,19 @@ class FiltroController extends Controller {
               $fileName  = 'espacio3.'.$extension;
               Input::file('espacio3')->move($destinationPath, $fileName); 
               Session::flash('success', 'Upload successfully'); 
+
               // guardar el registro en la BD
-              //return Redirect::to('user/subir_espacios');
+              $getFotos = DB::table('fotosespacios_user')->where('user_id', $this->user_id)->where('espacio', 'espacio3')->first();
+              if(empty($getFotos)){
+                $feu = new FotosEspaciosUser();
+                $feu->user_id = $this->user_id;
+                $feu->espacio = 'espacio3';
+              }else{
+                $feu = FotosEspaciosUser::find($getFotos->id);
+              }
+              $feu->img = $fileName;
+              $feu->save();
+
             }
             else {
               Session::flash('error', 'Error: el archivo subido no es válido');
@@ -298,7 +331,7 @@ class FiltroController extends Controller {
             }
         }
 
-        if(!empty(Input::file('espacio4'))){
+        if(Input::file('espacio4')->isValid()){
 
             $espacio4  = array('espacio4' => Input::file('espacio4'));
             $rules = array('espacio4' => 'required|mimes:jpeg,jpg,bmp,png,gif|max:6000'); 
@@ -313,9 +346,20 @@ class FiltroController extends Controller {
               $extension = Input::file('espacio4')->getClientOriginalExtension();
               $fileName  = 'espacio4.'.$extension;
               Input::file('espacio4')->move($destinationPath, $fileName); 
-              Session::flash('success', 'Upload successfully'); 
+              Session::flash('success', 'Upload successfully');
+
               // guardar el registro en la BD
-              //return Redirect::to('user/subir_espacios');
+              $getFotos = DB::table('fotosespacios_user')->where('user_id', $this->user_id)->where('espacio', 'espacio4')->first();
+              if(empty($getFotos)){
+                $feu = new FotosEspaciosUser();
+                $feu->user_id = $this->user_id;
+                $feu->espacio = 'espacio4';
+              }else{
+                $feu = FotosEspaciosUser::find($getFotos->id);
+              }
+              $feu->img = $fileName;
+              $feu->save();
+
             }
             else {
               Session::flash('error', 'Error: el archivo subido no es válido');
@@ -338,12 +382,9 @@ class FiltroController extends Controller {
         return "Post agendar";
     } 
 
-
     public function setEncuestaTerminada()
     {
         return view('panels.user.filtro.encuesta_terminada');
     }
-
-
 
 }

@@ -39,24 +39,14 @@ Route::group(['prefix' => 'user', 'middleware' => 'auth:user'], function()
     Route::get('seleccione_color',   ['as' => 'user.seleccione_color','uses' => 'User\FiltroController@setColor']);
     Route::post('seleccione_color',   ['as' => 'user.seleccione_color','uses' => 'User\FiltroController@postColor']);
 
-
     Route::get('seleccione_referentes', ['as' => 'user.seleccione_referentes','uses' => 'User\FiltroController@setReferentes']);
     Route::post('seleccione_referentes', ['as' => 'user.seleccione_referentes','uses' => 'User\FiltroController@postReferentes']);
-
 
     Route::get('subir_referente', ['as' => 'user.subir_referente','uses' => 'User\FiltroController@setReferentesUser']);
     Route::post('subir_referente', ['as' => 'user.post_subir_referente','uses' => 'User\FiltroController@postReferentesUser']);
 
-    Route::get('tienes_plano', ['as' => 'user.tienes_plano','uses' => 'User\FiltroController@setTienesPlano']);
-
-    Route::get('deseas_subir_espacios', ['as' => 'user.deseas_subir_espacios','uses' => 'User\FiltroController@setDeseasSubirEspacios']);
-
-    Route::get('subir_plano', ['as' => 'user.subir_plano','uses' => 'User\FiltroController@setSubirPlano']);
-    Route::post('subir_plano', ['as' => 'user.post_subir_plano','uses' => 'User\FiltroController@postSubirPlano']);
-
     Route::get('subir_espacios', ['as' => 'user.subir_espacios','uses' => 'User\FiltroController@setSubirEspacios']);
     Route::post('subir_espacios', ['as' => 'user.post_subir_espacios','uses' => 'User\FiltroController@postSubirEspacios']);
-
 
     Route::get('agendar', ['as' => 'user.agendar','uses' => 'User\FiltroController@setAgendar']);
     Route::post('agendar', ['as' => 'user.post_agendar','uses' => 'User\FiltroController@postAgendar']);
