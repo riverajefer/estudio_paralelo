@@ -18,24 +18,24 @@
 			<p class="errors">{!! Session::get('error') !!}</p>
 		@endif
 
+		<div class="form-group">
+			{!! Form::file('images[]', array('required'=>"required", "class"=>"up_file")) !!}
+		</div>
+
+		<p class="errors_img">{!!$errors->first('images')!!}</p>
 
 		<div class="form-group">
-			<input type="file" class="filestyle" id="file3" name="espacio1" required>
-		</div>	
-		<p class="errors_img">{!!$errors->first('espacio1')!!}</p>
-
-		<div class="form-group">
-			<input type="file" class="filestyle" id="file4" name="espacio2">
+			{!! Form::file('images[]', array("class"=>"up_file")) !!}
 		</div>	
 		<p class="errors_img">{!!$errors->first('espacio2')!!}</p>
 
 		<div class="form-group">
-			<input type="file" class="filestyle" id="file5" name="espacio3">
+			{!! Form::file('images[]', array("class"=>"up_file")) !!}
 		</div>
 		<p class="errors_img">{!!$errors->first('espacio3')!!}</p>
 
 		<div class="form-group">
-			<input type="file" class="filestyle" id="file6" name="espacio4">
+			{!! Form::file('images[]', array("class"=>"up_file")) !!}
 		</div>
 		<p class="errors_img">{!!$errors->first('espacio4')!!}</p>
 

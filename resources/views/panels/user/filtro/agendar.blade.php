@@ -13,10 +13,7 @@
 	</div>
 
 	{!! Form::open(['action'=>'User\FiltroController@postAgendar']) !!}
-	
-		@if(Session::has('error'))
-			<p class="errors">{!! Session::get('error') !!}</p>
-		@endif
+
 	<br><br>
 	  <div class="row">
 	    <div class="col s12">
@@ -25,6 +22,7 @@
 	          <img src="{{ asset('img/varios/calendar.png') }}">
 	          <br><br>
 	          <input type="date" class="datepicker_ s_fecha" id="fecha" name="fecha" placeholder="Fecha" required>
+						<p class="errors_img">{!!$errors->first('fecha')!!}</p>
 	        </div>
 	      </div>
 	    </div>
@@ -34,10 +32,14 @@
 			{!! Form::textarea('observaciones', Null, array('class'=>'materialize-textarea', 'id'=>'observaciones', 'placeholder'=>'Observaciones')) !!}
 			<label for="observaciones">Observaciones</label>
 		</div>
-		<div align="center">
-          {!! Form::submit('Finalizar', array( 'class'=>'btn waves-effect waves-light btn-azul' )) !!}
-        </div>
 
+		@if(Session::has('error'))
+			<p class="errors">{!! Session::get('error') !!}</p>
+		@endif		
+
+		<div align="center">
+       {!! Form::submit('Finalizar', array( 'class'=>'btn waves-effect waves-light btn-azul' )) !!}
+    </div>
 
 	{!! Form::close() !!}	
 

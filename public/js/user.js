@@ -1,6 +1,27 @@
 /***************************************
 SCRIPTS USER
 ***************************************/
+
+// jQuery plugin to prevent double submission of forms
+jQuery.fn.preventDoubleSubmission = function() {
+  $(this).on('submit',function(e){
+    var $form = $(this);
+
+    if ($form.data('submitted') === true) {
+      // Previously submitted - don't submit again
+      e.preventDefault();
+    } else {
+      // Mark it so that the next submit can be ignored
+      $form.data('submitted', true);
+    }
+  });
+
+  // Keep chainability
+  return this;
+};
+$('form').preventDoubleSubmission();
+
+
 $('input[name=espacio]').click(function(){
 	$("#siguiente_espacio").prop("disabled", false);
 });
@@ -47,13 +68,9 @@ $("#formReferenteUSer").submit(function(){
 	return true;
 });
 
-
-
 $('input[name=estilo]').click(function(){
 	$("#siguiente_estilo").prop("disabled", false);
 });
-
-
 
 $('input[name=color]').click(function(){
 	$("#siguiente_color").prop("disabled", false);
@@ -68,7 +85,6 @@ $("#siguiente_color").click(function(){
 	}
 	return true;
 });
-
 
 
 $('.sreferente').click(function(){
@@ -98,70 +114,17 @@ $('.sreferente').click(function(){
 	}
 
 });
-/*
-$( ".img-check" ).hover(
-  function() {
-  	console.log("hover");
-    $(this).find('.ref_check').show();
-  }, function() {
-  	console.log("Rolhover");
-    $(this).find('.ref_check').hide();
-  }
-);
-*/
 
-
-$("#file1").filestyle({
+$(".up_file").filestyle({
 	buttonBefore: true,
 	buttonText: "",
 	buttonName: "btn-upload",
 	iconName: "glyphicon glyphicon-cloud-upload",
-	placeholder: "Sube un referente (opcional)"
+	placeholder: "Sube un referente"
 });
 
-
-$("#file2").filestyle({
-	buttonBefore: true,
-	buttonText: "",
-	buttonName: "btn-upload",
-	iconName: "glyphicon glyphicon-cloud-upload",
-	placeholder: "Sube tu plano"
-});
-
-$("#file3").filestyle({
-	buttonBefore: true,
-	buttonText: "",
-	buttonName: "btn-upload",
-	iconName: "glyphicon glyphicon-cloud-upload",
-	placeholder: "Imagen 1"
-});
-
-$("#file4").filestyle({
-	buttonBefore: true,
-	buttonText: "",
-	buttonName: "btn-upload",
-	iconName: "glyphicon glyphicon-cloud-upload",
-	placeholder: "Imagen 2"
-});
-
-$("#file5").filestyle({
-	buttonBefore: true,
-	buttonText: "",
-	buttonName: "btn-upload",
-	iconName: "glyphicon glyphicon-cloud-upload",
-	placeholder: "Imagen 3"
-});
-
-$("#file6").filestyle({
-	buttonBefore: true,
-	buttonText: "",
-	buttonName: "btn-upload",
-	iconName: "glyphicon glyphicon-cloud-upload",
-	placeholder: "Imagen 4"
-});
-
-
- $( document ).ready(function() {
+ $(document).ready(function() {
+	 /*
 	   $('.datepicker').pickadate({
 	    selectMonths: true, // Creates a dropdown to control month
 	    selectYears: 15, // Creates a dropdown of 15 years to control year
@@ -169,22 +132,21 @@ $("#file6").filestyle({
 	  });
 
 	   $('.timepicker').pickatime()
+	   */
  });
 
 
 
  $('input[name=group1]').click(function(){
  	console.log("Click")
-
-	
 });
 
 
 
 $(window).on("load",function(){
-	    $(".caja_ref").mCustomScrollbar({
-	    	 theme:"my-theme"
-	    });
+	$(".caja_ref").mCustomScrollbar({
+	   theme:"my-theme"
 	});
+});
 
 
