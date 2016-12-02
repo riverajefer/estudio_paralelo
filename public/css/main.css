@@ -638,3 +638,11 @@ input[type=text][readonly="readonly"]
   color: #00172d !important;
   border-bottom: 
 }
+
+.errorToast{
+  background-color: #EE6E73;
+  border-radius: 15px;
+}
+
+
+

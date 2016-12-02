@@ -2,8 +2,7 @@
 
 @section('content')
   @section('head')
-    <script src="{{asset('js/picker.js')}}" defer="defer"></script>
-    <script src="{{asset('js/picker.time.js')}}" defer="defer"></script>
+    
   @stop
 	<div class="panel_espacio">
 	    <h1>Listo!, ahora <br>
@@ -33,6 +32,8 @@
 			<label for="observaciones">Observaciones</label>
 		</div>
 
+		
+
 		@if(Session::has('error'))
 			<p class="errors">{!! Session::get('error') !!}</p>
 		@endif		
@@ -42,5 +43,18 @@
     </div>
 
 	{!! Form::close() !!}	
+
+<script>
+/*
+<input type="date" class="datepicker">
+ $(document).ready(function() {
+	   $('.datepicker').pickadate({
+	    selectMonths: true, // Creates a dropdown to control month
+	    selectYears: 15, // Creates a dropdown of 15 years to control year
+		format: 'dd/mm/yyyy' 
+	  });
+ });
+*/
+</script>
 
 @stop

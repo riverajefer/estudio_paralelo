@@ -174,7 +174,6 @@ class FiltroController extends Controller {
 
     public function postAgendar(Request $request)
     {
-     //   return $request->input('fecha');
 
         $rules = array('fecha' => 'required');
         $validator = Validator::make(Input::all(), $rules);
@@ -204,7 +203,54 @@ class FiltroController extends Controller {
 
     public function setEncuestaTerminada()
     {
-        return view('panels.user.filtro.encuesta_terminada');
+
+      $getFiltro = DB::table('filtro')->where('user_id', $this->user_id)->first();
+      if(empty($getFiltro)){
+        return Redirect::to('user/seleccione_espacio');
+      }
+
+      $espacio_id = $getFiltro->espacio_id;
+      $estilo_id  = $getFiltro->estilo_id;
+      $color_id  = $getFiltro->color_id;
+
+      $getAgenda = DB::table('agendar_cita')->where('user_id', $this->user_id)->first();
+      $fecha_cita = $getAgenda->fecha;
+
+      $espacios = Espacio::all(['id', 'titulo']);
+      $estilos  = Estilo::all(['id', 'titulo']);
+      $colores  = Color::all(['id', 'titulo']);
+
+      
+      return view('panels.user.filtro.encuesta_terminada', compact('espacios', 'espacio_id', 'estilos', 'estilo_id', 'colores', 'color_id', 'fecha_cita'));
     }
+
+
+    public function postEncuestaTerminada(Request $request)
+    {
+
+      $espacio_id =  Input::get('espacio_id');
+      $estilo_id  =  Input::get('estilo_id');
+      $color_id   =  Input::get('color_id');
+      $fecha      =  Input::get('fecha');
+
+      $getFiltro = DB::table('filtro')->where('user_id', $this->user_id)->first();
+      return $filtro = Filtro::find($getFiltro->id);
+
+      $filtro->estilo_id = $estilo_id;
+      $filtro->estilo_id = $estilo_id;
+      $filtro->color_id = $color_id;
+      $filtro->save();
+
+      $getAgenda = DB::table('agendar_cita')->where('user_id', $this->user_id)->first();
+      $agenda = AgendarCita::find($getAgenda->id);
+      $agenda->fecha;
+      $agenda->save();
+
+      return Redirect::back()->withInput();
+
+
+    }
+
+
 
 }

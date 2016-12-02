@@ -1,7 +1,7 @@
 @extends('layouts.user')
 @section('content')
 	{!! HTML::style('/plugins/scrollbar/jquery.mCustomScrollbar.css') !!}
-	<script src="{{asset('/plugins/scrollbar/jquery.mCustomScrollbar.js')}}" defer="defer"></script>
+	
 
 	<div class="panel_espacio">
 	    <h1>¡Ya casi terminas! selecciona tus imágenes favoritas. <br>

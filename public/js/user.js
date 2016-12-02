@@ -59,14 +59,7 @@ $("#formColor").submit(function(){
 });
 
 
-$("#formReferenteUSer").submit(function(){
-	if($('.sreferente:checked').length<=0)
-	{
-	  alert("Seleccione almenos un referente")
-	  return false;
-	}
-	return true;
-});
+
 
 $('input[name=estilo]').click(function(){
 	$("#siguiente_estilo").prop("disabled", false);
@@ -88,6 +81,7 @@ $("#siguiente_color").click(function(){
 
 
 $('.sreferente').click(function(){
+	
 	console.log($(this).siblings('span'))
 	$(".sreferente:checked").siblings('span').show();
 	$(".sreferente:not(:checked)").siblings('span').hide();
@@ -99,21 +93,31 @@ $('.sreferente').click(function(){
 		$(".sreferente:not(:checked)").prop("disabled", true);
 		$(".sreferente:not(:checked)").siblings('span').hide();
 		$('#myModal').modal('show')
-
 	}
 	else if(numberOfChecked==0){
-		 $("#siguiente_referente").hide();
+		 //$("#siguiente_referente").hide();
 		 //$(this).siblings('span').hide();
+		 //$("#siguiente_referente").prop("disabled", false);
 		 $(".sreferente:checked").siblings('span').hide();
 		 $(".sreferente:not(:checked)").siblings('span').hide();
 	}
 	else if(numberOfChecked<4){
 		$(".sreferente:not(:checked)").prop("disabled", false);
 		$(".sreferente:not(:checked)").siblings('span').hide();
-
 	}
-
 });
+
+
+$("#formReferenteUSer").submit(function(){
+	if($('.sreferente:checked').length<=0)
+	{
+	  //alert("Seleccione almenos un referente")
+		Materialize.toast('Seleccione por lo menos un referente', 5000, 'errorToast', 'rounded')
+	  return false;
+	}
+	return true;
+});
+
 
 $(".up_file").filestyle({
 	buttonBefore: true,
@@ -123,25 +127,9 @@ $(".up_file").filestyle({
 	placeholder: "Sube un referente"
 });
 
- $(document).ready(function() {
-	 /*
-	   $('.datepicker').pickadate({
-	    selectMonths: true, // Creates a dropdown to control month
-	    selectYears: 15, // Creates a dropdown of 15 years to control year
-		format: 'dd/mm/yyyy' 
-	  });
-
-	   $('.timepicker').pickatime()
-	   */
- });
-
-
-
  $('input[name=group1]').click(function(){
  	console.log("Click")
-});
-
-
+ });
 
 $(window).on("load",function(){
 	$(".caja_ref").mCustomScrollbar({
@@ -149,4 +137,4 @@ $(window).on("load",function(){
 	});
 });
 
-
+//$('select').material_select();
