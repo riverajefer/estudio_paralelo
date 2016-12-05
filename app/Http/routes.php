@@ -51,8 +51,9 @@ Route::group(['prefix' => 'user', 'middleware' => 'auth:user'], function()
     Route::get('agendar', ['as' => 'user.agendar','uses' => 'User\FiltroController@setAgendar']);
     Route::post('agendar', ['as' => 'user.post_agendar','uses' => 'User\FiltroController@postAgendar']);
 
-    Route::get('encuesta_terminada', ['as' => 'user.encuesta_terminada','uses' => 'User\FiltroController@setEncuestaTerminada']);
-    Route::post('encuesta_terminada', ['as' => 'user.post_encuesta_terminada','uses' => 'User\FiltroController@postEncuestaTerminada']);
+    Route::get('resumen', ['as' => 'user.resumen','uses' => 'User\FiltroController@setResumen']);
+    Route::post('resumen', ['as' => 'user.post_resumen','uses' => 'User\FiltroController@postResumen']);
+
 
     Route::get('test', function(){
         $user = App\Models\User::find(11);

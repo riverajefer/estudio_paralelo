@@ -163,8 +163,6 @@ class FiltroController extends Controller {
         }
 
         return Redirect::to('user/agendar');
-        return "Ok";
-              
     }    
 
     public function setAgendar()
@@ -192,7 +190,7 @@ class FiltroController extends Controller {
         $AgendarCita->fecha = $request->input('fecha');
         $AgendarCita->observaciones = $request->input('observaciones');
         $AgendarCita->save();
-        return Redirect::to('user/encuesta_terminada');
+        return Redirect::to('user/resumen');
       }else{
         Session::flash('error', 'La cita ya está agendada');
         return Redirect::back()->withInput();
@@ -201,7 +199,7 @@ class FiltroController extends Controller {
 
     } 
 
-    public function setEncuestaTerminada()
+    public function setResumen()
     {
 
       $getFiltro = DB::table('filtro')->where('user_id', $this->user_id)->first();
@@ -221,11 +219,11 @@ class FiltroController extends Controller {
       $colores  = Color::all(['id', 'titulo']);
 
       
-      return view('panels.user.filtro.encuesta_terminada', compact('espacios', 'espacio_id', 'estilos', 'estilo_id', 'colores', 'color_id', 'fecha_cita'));
+      return view('panels.user.filtro.resumen', compact('espacios', 'espacio_id', 'estilos', 'estilo_id', 'colores', 'color_id', 'fecha_cita'));
     }
 
 
-    public function postEncuestaTerminada(Request $request)
+    public function postResumen(Request $request)
     {
 
       $espacio_id =  Input::get('espacio_id');
@@ -234,9 +232,9 @@ class FiltroController extends Controller {
       $fecha      =  Input::get('fecha');
 
       $getFiltro = DB::table('filtro')->where('user_id', $this->user_id)->first();
-      return $filtro = Filtro::find($getFiltro->id);
+      $filtro = Filtro::find($getFiltro->id);
 
-      $filtro->estilo_id = $estilo_id;
+      $filtro->espacio_id = $espacio_id;
       $filtro->estilo_id = $estilo_id;
       $filtro->color_id = $color_id;
       $filtro->save();
@@ -246,7 +244,7 @@ class FiltroController extends Controller {
       $agenda->fecha;
       $agenda->save();
 
-      return Redirect::back()->withInput();
+      return Redirect::back();
 
 
     }
