@@ -82,6 +82,35 @@
 
 	{!! Form::close() !!}	
 
+      <table class="bordered highlight responsive-table">
+        <thead>
+          <tr>
+              <th data-field="envio">ENVIO</th>
+              <th data-field="estado">ESTADO</th>
+              <th data-field="total">TOTAL</th>
+			  <th data-field="lista">MI LISTA</th>
+              <th data-field="cita">MI CITA</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>    
+				08-09-2016
+		    </td>
+            <td>    
+				EN PROCESO
+		    </td>
+            <td>    
+				$75.679.000
+		    </td>
+            <td>    
+				VER DETALLES
+		    </td>									
+	      </tr>
+		</tbody>
+	 </table>
+
 </div>
 
 

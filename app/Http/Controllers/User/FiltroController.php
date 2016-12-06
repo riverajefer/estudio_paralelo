@@ -241,7 +241,7 @@ class FiltroController extends Controller {
 
       $getAgenda = DB::table('agendar_cita')->where('user_id', $this->user_id)->first();
       $agenda = AgendarCita::find($getAgenda->id);
-      $agenda->fecha;
+      $agenda->fecha = $fecha;
       $agenda->save();
 
       return Redirect::back();

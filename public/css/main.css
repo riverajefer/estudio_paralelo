@@ -636,13 +636,56 @@ input[type=text][readonly="readonly"]
   text-align: center;
   font-size: 28px !important;
   color: #00172d !important;
-  border-bottom: 
 }
 
 .errorToast{
   background-color: #EE6E73;
   border-radius: 15px;
 }
+
+.page_resumen{
+
+}
+
+.page_resumen table thead tr th{
+  color: #002f56;
+}
+
+
+.page_resumen table tbody tr td select{
+    width: 230px;
+    padding: 5px;
+    font-size: 16px;
+    line-height: 1;
+    border: 0;
+    border-radius: 5px;
+    height: 34px;
+    box-shadow: none;
+    background: url(../img/iconos/br_down.png) no-repeat right #fff;
+    -webkit-appearance: none;
+    background-position-x: 200px;
+}
+
+.page_resumen table tbody tr td input[type="date"]{
+    margin: 0px;
+    width: 230px;
+    font-size: 16px;
+    line-height: 1;
+    border: 0;
+    border-radius: 5px;
+    height: 34px;
+    box-shadow: none;
+    background: url(../img/iconos/br_down.png) no-repeat right #fff;
+    -webkit-appearance: none;
+    background-position-x: 200px;
+}
+
+
+.page_resumen table tbody tr td select:hover{
+  border-bottom: 1px solid #E6E6E6;
+
+}
+
 
 
 

@@ -1,0 +1,41 @@
+
+=> Lista de pedidos, logica-vista
+Es decir user/pedidos/1
+=> Al finalizar la primera encuesta, mostrar
+=> El  (resumen del pedido) cuando le de click, si mostrar el detalle del pedido
+=> A demás mostar, la "Factura"
+=> Mostrar también su cita se agendo tal fecha.
+Se le enviara una confirmación por emal.... etc
+
+Con esto paracialmente queda termna ala parate de User
+
+
+____________________________________
+
+=> crear roles de Usuarios 
+1. User
+2. Disigner
+3. Admin
+
+
+
+El administrador, asigna un pedido al diseñador
+
+En el Perfil del diseñador mostrar sus pedidos asignados
+
+* Importante, stado de los pedidos
+2 estados, completo y asesorado*
+
+
+Agregar plano diseñador en el espacio disponible
+
+Crud de productos
+Luego mirar el Board
+
+
+
+
+
+
+
+
