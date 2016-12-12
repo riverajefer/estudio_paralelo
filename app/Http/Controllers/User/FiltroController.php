@@ -46,6 +46,7 @@ class FiltroController extends Controller {
 
       $filtro->espacio_id = $request->input('espacio');
       $filtro->paquete_id = 1;
+      $filtro->estado = 'Sin envíar';
       
       $filtro->save();    
       return Redirect::to('user/seleccione_estilo');
@@ -174,20 +175,22 @@ class FiltroController extends Controller {
     public function postAgendar(Request $request)
     {
 
-        $rules = array('fecha' => 'required');
-        $validator = Validator::make(Input::all(), $rules);
+      $rules = array('fecha' => 'required');
+      $validator = Validator::make(Input::all(), $rules);
 
-        if ($validator->fails()) {
-          Session::flash('error', 'La fecha es requerida'); 
-          return Redirect::back()->withInput()->withErrors($validator);
-        }
+      if ($validator->fails()) {
+        Session::flash('error', 'La fecha es requerida'); 
+        return Redirect::back()->withInput()->withErrors($validator);
+      }
+
+      $getFiltro = DB::table('filtro')->where('user_id', $this->user_id)->first();
 
 
-      $getAgenda = DB::table('agendar_cita')->where('user_id', $this->user_id)->first();
+      $getAgenda = DB::table('agendar_cita')->where('filtro_id', $getFiltro->id)->first();
       if(empty($getAgenda)){ 
 
         $AgendarCita = new AgendarCita();
-        $AgendarCita->user_id = $this->user_id;
+        $AgendarCita->filtro_id = $getFiltro->id;
         $AgendarCita->fecha = $request->input('fecha');
         $AgendarCita->observaciones = $request->input('observaciones');
         $AgendarCita->save();
@@ -213,7 +216,7 @@ class FiltroController extends Controller {
       $color_id   = $getFiltro->color_id;
       $paquete_id = $getFiltro->paquete_id;
 
-      $getAgenda  = DB::table('agendar_cita')->where('user_id', $this->user_id)->first();
+      $getAgenda  = DB::table('agendar_cita')->where('filtro_id', $getFiltro->id)->first();
       $fecha_cita = $getAgenda->fecha;
 
       $espacios  = Espacio::all(['id', 'titulo']);
@@ -243,10 +246,11 @@ class FiltroController extends Controller {
       $filtro->color_id = $color_id;
       $filtro->paquete_id = $paquete_id;
       $filtro->completo = 1;
+      $filtro->estado = 'ENVÍADO';
       
       $filtro->save();
 
-      $getAgenda = DB::table('agendar_cita')->where('user_id', $this->user_id)->first();
+      $getAgenda  = DB::table('agendar_cita')->where('filtro_id', $getFiltro->id)->first();
       $agenda = AgendarCita::find($getAgenda->id);
       $agenda->fecha = $fecha;
       $agenda->save();

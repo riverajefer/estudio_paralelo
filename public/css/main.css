@@ -94,7 +94,7 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
     outline: none;
     height: 3rem;
     width: 100%;
-    font-size: 1rem;
+    font-size: 2rem;
     margin: 0 0 15px 0;
     padding: 0;
     box-shadow: none;
@@ -652,6 +652,7 @@ input[type=text][readonly="readonly"]
 }
 
 
+
 .page_resumen table tbody tr td select{
     width: 230px;
     padding: 5px;
@@ -686,6 +687,34 @@ input[type=text][readonly="readonly"]
 
 }
 
+.page_pedido table thead tr th{
+  color: #002f56;
+}
+
+.page_pedido table thead tr th{
+  padding: 10px;
+}
+.page_pedido table tbody tr td{
+  padding: 10px;
+}
+
+
+.page_resumen table thead tr th{
+  padding: 10px;
+}
+.page_resumen table tbody tr td{
+  padding: 10px;
+}
+
+.estado_pedido  tbody tr td{
+  font-family: 'Conv_Montserrat-Regular';
+  color: #f44336;
+}
+
+.list_ref .s1{
+  margin-left: 7px !important;
+
+}
 
 
 
