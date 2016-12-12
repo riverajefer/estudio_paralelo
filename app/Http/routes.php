@@ -54,6 +54,7 @@ Route::group(['prefix' => 'user', 'middleware' => 'auth:user'], function()
     Route::get('resumen', ['as' => 'user.resumen','uses' => 'User\FiltroController@setResumen']);
     Route::post('resumen', ['as' => 'user.post_resumen','uses' => 'User\FiltroController@postResumen']);
 
+    Route::resource('pedidos', 'User\PedidoController');
 
     Route::get('test', function(){
         $user = App\Models\User::find(11);
@@ -77,6 +78,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:administrator'], functi
     Route::resource('estilos', 'Admin\EstiloController');
     Route::resource('espacios', 'Admin\EspacioController');
     Route::resource('colors', 'Admin\ColorController');
+    Route::resource('paquetes', 'Admin\PaqueteController');
+    
 });
 
 

@@ -7,8 +7,8 @@
 	    <p>Revisa tu pedido, si estás seguro dale en enviar</p>
 	</div>
 
+<div class="espacio_v5"></div>
 <div class="page_resumen">		
-
 
 {!! Form::open(['action'=>'User\FiltroController@postResumen']) !!}
 
@@ -26,7 +26,15 @@
         <tbody>
           <tr>
             <td>    
-				Paquete
+				<select class="form-control" name="paquete_id">
+					@foreach($paquetes as $item)
+						@if($item->id==$paquete_id)
+							<option selected value="{{$item->id}}">{{$item->titulo}}</option>
+						@else
+							<option value="{{$item->id}}">{{$item->titulo}}</option>
+						@endif
+					@endforeach
+				</select>	
 		    </td>
             <td>
 				<select class="form-control" name="espacio_id">

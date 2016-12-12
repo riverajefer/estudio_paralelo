@@ -3,7 +3,6 @@ namespace App\Http\Controllers\User;
 use Input;
 use Validator;
 use Redirect;
-//use Request;
 use Session;
 use Auth;
 use App\Http\Controllers\Controller;
@@ -11,6 +10,7 @@ use App\Models\Espacio;
 use App\Models\Estilo;
 use App\Models\Color;
 use App\Models\User;
+use App\Models\Paquete;
 use App\Models\Referente;
 use App\Models\FotosEspaciosUser;
 use App\Models\AgendarCita;
@@ -45,6 +45,8 @@ class FiltroController extends Controller {
         }
 
       $filtro->espacio_id = $request->input('espacio');
+      $filtro->paquete_id = 1;
+      
       $filtro->save();    
       return Redirect::to('user/seleccione_estilo');
     }
@@ -116,7 +118,6 @@ class FiltroController extends Controller {
       $ref  = $request->input('referente');
       $user->referentes()->sync($ref);
       return Redirect::to('user/subir_espacios');
-
     } 
 
    public function setSubirEspacios()
@@ -209,17 +210,18 @@ class FiltroController extends Controller {
 
       $espacio_id = $getFiltro->espacio_id;
       $estilo_id  = $getFiltro->estilo_id;
-      $color_id  = $getFiltro->color_id;
+      $color_id   = $getFiltro->color_id;
+      $paquete_id = $getFiltro->paquete_id;
 
-      $getAgenda = DB::table('agendar_cita')->where('user_id', $this->user_id)->first();
+      $getAgenda  = DB::table('agendar_cita')->where('user_id', $this->user_id)->first();
       $fecha_cita = $getAgenda->fecha;
 
-      $espacios = Espacio::all(['id', 'titulo']);
-      $estilos  = Estilo::all(['id', 'titulo']);
-      $colores  = Color::all(['id', 'titulo']);
-
+      $espacios  = Espacio::all(['id', 'titulo']);
+      $estilos   = Estilo::all(['id', 'titulo']);
+      $colores   = Color::all(['id', 'titulo']);
+      $paquetes  = Paquete::all(['id', 'titulo']);
       
-      return view('panels.user.filtro.resumen', compact('espacios', 'espacio_id', 'estilos', 'estilo_id', 'colores', 'color_id', 'fecha_cita'));
+      return view('panels.user.filtro.resumen', compact('espacios', 'espacio_id', 'estilos', 'estilo_id', 'colores', 'color_id', 'paquetes', 'paquete_id', 'fecha_cita'));
     }
 
 
@@ -229,6 +231,8 @@ class FiltroController extends Controller {
       $espacio_id =  Input::get('espacio_id');
       $estilo_id  =  Input::get('estilo_id');
       $color_id   =  Input::get('color_id');
+      $paquete_id =  Input::get('paquete_id');
+      
       $fecha      =  Input::get('fecha');
 
       $getFiltro = DB::table('filtro')->where('user_id', $this->user_id)->first();
@@ -237,6 +241,9 @@ class FiltroController extends Controller {
       $filtro->espacio_id = $espacio_id;
       $filtro->estilo_id = $estilo_id;
       $filtro->color_id = $color_id;
+      $filtro->paquete_id = $paquete_id;
+      $filtro->completo = 1;
+      
       $filtro->save();
 
       $getAgenda = DB::table('agendar_cita')->where('user_id', $this->user_id)->first();
@@ -244,8 +251,8 @@ class FiltroController extends Controller {
       $agenda->fecha = $fecha;
       $agenda->save();
 
-      return Redirect::back();
 
+      return Redirect::to('user/pedidos/'.$filtro->id);
 
     }
 
