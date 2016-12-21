@@ -35,7 +35,7 @@ class FiltroController extends Controller {
     public function postEspacio(Request $request)
     {
 
-      $getFiltro = DB::table('filtro')->where('user_id', $this->user_id)->first();
+      $getFiltro = DB::table('filtro')->where('user_id', $this->user_id)->orderBy('created_at', 'desc')->first();
 
       if(empty($getFiltro)){
           $filtro = new Filtro();
@@ -47,8 +47,8 @@ class FiltroController extends Controller {
       $filtro->espacio_id = $request->input('espacio');
       $filtro->paquete_id = 1;
       $filtro->estado = 'Sin envíar';
-      
       $filtro->save();    
+
       return Redirect::to('user/seleccione_estilo');
     }
 
@@ -63,7 +63,7 @@ class FiltroController extends Controller {
     public function postEstilo(Request $request)
     {
 
-      $getFiltro = DB::table('filtro')->where('user_id', $this->user_id)->first();
+      $getFiltro = DB::table('filtro')->where('user_id', $this->user_id)->orderBy('created_at', 'desc')->first();
 
       $filtro = new Filtro();
 
@@ -88,7 +88,7 @@ class FiltroController extends Controller {
     public function postColor(Request $request)
     {
 
-      $getFiltro = DB::table('filtro')->where('user_id', $this->user_id)->first();
+      $getFiltro = DB::table('filtro')->where('user_id', $this->user_id)->orderBy('created_at', 'desc')->first();
 
       if(empty($getFiltro)){
           $filtro = new Filtro();
@@ -183,7 +183,7 @@ class FiltroController extends Controller {
         return Redirect::back()->withInput()->withErrors($validator);
       }
 
-      $getFiltro = DB::table('filtro')->where('user_id', $this->user_id)->first();
+      $getFiltro = DB::table('filtro')->where('user_id', $this->user_id)->orderBy('created_at', 'desc')->first();
 
 
       $getAgenda = DB::table('agendar_cita')->where('filtro_id', $getFiltro->id)->first();
@@ -206,7 +206,7 @@ class FiltroController extends Controller {
     public function setResumen()
     {
 
-      $getFiltro = DB::table('filtro')->where('user_id', $this->user_id)->first();
+      $getFiltro = DB::table('filtro')->where('user_id', $this->user_id)->orderBy('created_at', 'desc')->first();
       if(empty($getFiltro)){
         return Redirect::to('user/seleccione_espacio');
       }
@@ -238,7 +238,7 @@ class FiltroController extends Controller {
       
       $fecha      =  Input::get('fecha');
 
-      $getFiltro = DB::table('filtro')->where('user_id', $this->user_id)->first();
+      $getFiltro = DB::table('filtro')->where('user_id', $this->user_id)->orderBy('created_at', 'desc')->first();
       $filtro = Filtro::find($getFiltro->id);
 
       $filtro->espacio_id = $espacio_id;

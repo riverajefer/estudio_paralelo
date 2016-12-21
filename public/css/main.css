@@ -94,7 +94,7 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
     outline: none;
     height: 3rem;
     width: 100%;
-    font-size: 2rem;
+    font-size: 1rem;
     margin: 0 0 15px 0;
     padding: 0;
     box-shadow: none;
@@ -206,7 +206,14 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
   text-transform: uppercase;
 }
 
+.btn{
+  border-radius: 15px !important;
+   outline:none;
+}
 
+*:focus{
+  outline: 0 !important;
+}
 
 .btn-azul{
   background-color: #00172D;
@@ -224,16 +231,24 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
 .btn-azul:active{
 	background-color: #83A5C5;
 	color:#FFF;
+  border:none;
 }
 .btn-azul:focus{
 	background-color: #83A5C5;
 	color:#FFF;
+  border:none;
 }
 
 
 .btn-rojo{
   font-family: 'Conv_Montserrat-Bold',Sans-Serif;
   background-color: #f44336;
+  border-radius: 5px;
+  width: 200px;
+  height: 42px;
+  font-size: 17px;
+  margin-bottom: 60px;
+  padding-top: 5px;   
 }
 .btn-rojo:hover{
   background-color: #e57373;
@@ -692,18 +707,19 @@ input[type=text][readonly="readonly"]
 }
 
 .page_pedido table thead tr th{
-  padding: 10px;
+  padding: 17px;
 }
 .page_pedido table tbody tr td{
-  padding: 10px;
+  padding: 17px;
+  color: #ed5565;
 }
 
 
 .page_resumen table thead tr th{
-  padding: 10px;
+  padding: 17px;
 }
 .page_resumen table tbody tr td{
-  padding: 10px;
+  padding: 17px;
 }
 
 .estado_pedido  tbody tr td{
@@ -713,8 +729,28 @@ input[type=text][readonly="readonly"]
 
 .list_ref .s1{
   margin-left: 7px !important;
-
 }
 
+.btn.focus, .btn:focus, .btn:hover {
+    color: #00172d;
+    text-decoration: none;
+}
 
+.waves-effect input[type="button"], .waves-effect input[type="reset"], .waves-effect input[type="submit"] {
+    width:100%;
+    cursor: pointer;
+    padding-top: 3px;
+    font-size: 1.1em;
+}
 
+.materialboxed{
+  border-radius: 10px;
+}
+
+.ti_ref{
+  font-family: 'Conv_Georgia Bold Italic',Sans-Serif;
+  font-size: 1.5em;
+  color: #00172D;
+  font-weight: bold;
+  margin-bottom: 12px;
+}

@@ -54,6 +54,8 @@ Route::group(['prefix' => 'user', 'middleware' => 'auth:user'], function()
     Route::get('resumen', ['as' => 'user.resumen','uses' => 'User\FiltroController@setResumen']);
     Route::post('resumen', ['as' => 'user.post_resumen','uses' => 'User\FiltroController@postResumen']);
 
+    Route::get('nuevo_pedido', ['as' => 'user.nuevo_pedido','uses' => 'User\PedidoController@nuevoPedido']);
+
     Route::resource('pedidos', 'User\PedidoController');
 
     Route::get('test', function(){

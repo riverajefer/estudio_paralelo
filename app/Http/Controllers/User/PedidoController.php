@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
-
+use Redirect;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Filtro;
@@ -32,8 +32,27 @@ class PedidoController extends Controller
      */
     public function index()
     {
-        //
+
+
+        $pedidos = Filtro::where('user_id', $this->user_id)->get();
+
+        //return $pedidos =  DB::table('filtro')->where('user_id', $this->user_id);
+        if(empty($pedidos)){
+            return Redirect::to('user/seleccione_espacio');
+        }
+       return view('panels.user.pedidos.index', compact('pedidos'));
     }
+
+
+    public function nuevoPedido()
+    {
+       $filtro = new Filtro();
+       $filtro->user_id = $this->user_id;
+       $filtro->estado = 'Sin envíar';
+       $filtro->save();
+       return Redirect::to('user/seleccione_espacio');
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -69,7 +88,7 @@ class PedidoController extends Controller
       if(empty($filtro)){
         return Redirect::to('user/seleccione_espacio');
       }
-      return view('panels.user.filtro.pedido', compact('filtro'));
+      return view('panels.user.pedidos.show', compact('filtro'));
     }
 
     /**
