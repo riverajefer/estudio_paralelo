@@ -10,3 +10,5 @@
 	<![endif]-->
 	{!! HTML::style('css/materialize.min.css') !!}
 	{!! HTML::style('css/main.css') !!}
+	{!! HTML::style('plugins/lightbox2/css/lightbox.min.css') !!}
+	

@@ -38,13 +38,13 @@
 		<br>
 		<br>
 
-
-
     <p>Referentes seleccionados</p>
 		<div class="row">
 			@foreach (Auth::user()->referentes as $referente)
 				<div class="col-md-3 col-xs-12 col-sm-6">
-					<img class="materialboxed" data-caption="{{$referente->descripcion}}" width="150" src="{{asset('img/referentes/'.$referente->img)}}">
+				  <a href="{{asset('img/referentes/'.$referente->img)}}" data-lightbox="image-1" data-title="{{$referente->descripcion}}">
+				 	 <img width="150" src="{{asset('img/referentes/'.$referente->img)}}">
+					</a>
 				</div>		
 			@endforeach
 			</div>	
@@ -54,7 +54,9 @@
 	<div class="row">
 		@foreach (Auth::user()->fotosRefUser as $referente)
 			<div class="col-md-3 col-xs-12 col-sm-6">
-				<img class="materialboxed" data-caption="{{$referente->descripcion}}" width="150" src="{{asset('uploads/referentes/'.Auth::user()->id.'/'.$referente->img)}}">
+			  <a href="{{asset('uploads/referentes/'.Auth::user()->id.'/'.$referente->img)}}" data-lightbox="image-2" data-title="{{$referente->descripcion}}">
+				 <img width="150" src="{{asset('uploads/referentes/'.Auth::user()->id.'/'.$referente->img)}}">
+				</a>
 			</div>		
 		@endforeach
 		</div>	
@@ -72,6 +74,13 @@
 
 </div>
 
+<script>
+    lightbox.option({
+      'resizeDuration': 200,
+      'wrapAround': true
+    })	
+
+</script>
 
 </div>
 @stop
