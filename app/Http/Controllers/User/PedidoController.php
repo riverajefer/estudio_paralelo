@@ -40,6 +40,7 @@ class PedidoController extends Controller
         if(empty($pedidos)){
             return Redirect::to('user/seleccione_espacio');
         }
+       //return view('panels.user.pedidos.index', compact('pedidos'));
        return view('panels.user.pedidos.index', compact('pedidos'));
     }
 

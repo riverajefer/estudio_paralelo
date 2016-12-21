@@ -206,7 +206,8 @@ class FiltroController extends Controller {
     public function setResumen()
     {
 
-      $getFiltro = DB::table('filtro')->where('user_id', $this->user_id)->orderBy('created_at', 'desc')->first();
+      //$getFiltro = DB::table('filtro')->where('user_id', $this->user_id)->orderBy('created_at', 'desc')->first();
+      $getFiltro = DB::table('filtro')->where('user_id', $this->user_id)->first();
       if(empty($getFiltro)){
         return Redirect::to('user/seleccione_espacio');
       }
