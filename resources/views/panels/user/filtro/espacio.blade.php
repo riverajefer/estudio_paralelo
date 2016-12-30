@@ -33,6 +33,9 @@
 	 		<button class="btn waves-effect waves-light btn-azul" id ="siguiente_espacio" disabled name="action">CONTINUA</button>
 		</div>	
 
+		<div class="espacio_v5">
+		</div>
+
 		{!! Form::close() !!}
    </div>
 

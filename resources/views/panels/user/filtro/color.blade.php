@@ -23,12 +23,14 @@
 							</label>		    	
 						</div>
 					@endforeach
-    	</div>
+    	   </div>
 			<br>
 			<div align="center">
 				<button class="btn waves-effect waves-light btn-azul" id ="siguiente_color" disabled name="action">CONTINUA</button>
 			</div>
    {!! Form::close() !!}
+	
+	<div class="espacio_v5"></div>
 
    </div>
 

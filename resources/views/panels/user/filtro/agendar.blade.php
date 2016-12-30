@@ -42,6 +42,8 @@
        {!! Form::submit('Finalizar', array( 'class'=>'btn waves-effect waves-light btn-azul' )) !!}
     </div>
 
+	<div class="espacio_v5"></div>
+
 	{!! Form::close() !!}	
 
 <script>

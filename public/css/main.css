@@ -94,7 +94,7 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
     outline: none;
     height: 3rem;
     width: 100%;
-    font-size: 1rem;
+    font-size: 1em;
     margin: 0 0 15px 0;
     padding: 0;
     box-shadow: none;
@@ -707,19 +707,19 @@ input[type=text][readonly="readonly"]
 }
 
 .page_pedido table thead tr th{
-  padding: 17px;
+  padding: 5px;
 }
 .page_pedido table tbody tr td{
-  padding: 17px;
+  padding: 5px;
   color: #ed5565;
 }
 
 
 .page_resumen table thead tr th{
-  padding: 17px;
+  padding: 5px;
 }
 .page_resumen table tbody tr td{
-  padding: 17px;
+  padding: 5px;
 }
 
 .estado_pedido  tbody tr td{
@@ -754,3 +754,22 @@ input[type=text][readonly="readonly"]
   font-weight: bold;
   margin-bottom: 12px;
 }
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control{
+  background-color: transparent !important;
+  font-size: 0.8em;
+}
+label {
+    font-size: 0.8em;
+    color: #9e9e9e;
+}
+
+@media only screen and (max-width: 992px){
+  table.responsive-table.bordered td {
+    padding: 10px;
+  }
+  table.responsive-table.bordered th {
+    padding: 17px;
+  }  
+}
+
+

@@ -23,6 +23,7 @@
     {!! Form::close() !!}
 
 	</div>
+	<div class="espacio_v5"></div>
 
 @stop
 

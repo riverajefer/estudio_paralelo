@@ -196,8 +196,9 @@ class FiltroController extends Controller {
         $AgendarCita->save();
         return Redirect::to('user/resumen');
       }else{
-        Session::flash('error', 'La cita ya está agendada');
-        return Redirect::back()->withInput();
+        //Session::flash('error', 'La cita ya está agendada');
+        //return Redirect::back()->withInput();
+        return Redirect::to('user/resumen');
 
       }       
 
