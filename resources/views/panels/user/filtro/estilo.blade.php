@@ -13,7 +13,7 @@
 	    </p>
 	    <p>&nbsp;</p>
 		<div class="container">
-		{!! Form::open(['action'=>'User\FiltroController@postEstilo', 'id'=>'formEstilo']) !!}
+		{!! Form::open(['action'=>'User\PedidoController@postEstilo', 'id'=>'formEstilo']) !!}
 		  <div class="row-fluid">
 			<?php $i = 0;?>   
 		    @foreach($estilos as $estilo)

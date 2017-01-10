@@ -11,7 +11,7 @@
 		 tu paquete sera enviado el dia</p>
 	</div>
 
-	{!! Form::open(['action'=>'User\FiltroController@postAgendar']) !!}
+	{!! Form::open(['action'=>'User\PedidoController@postAgendar']) !!}
 
 	<br><br>
 	  <div class="row">

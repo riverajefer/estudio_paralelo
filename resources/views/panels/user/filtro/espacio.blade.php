@@ -3,7 +3,6 @@
 @stop
 
 @section('content')
-  
 
 	<div class="panel_espacio">
 	    <h1>Selecciona el tipo de espacio <br>
@@ -15,7 +14,7 @@
 	    <p>&nbsp;</p>
   
 		<div class="container">
-		{!! Form::open(['action'=>'User\FiltroController@postEspacio', 'id'=>'formEspacio']) !!}
+		{!! Form::open(['action'=>'User\PedidoController@postEspacio', 'id'=>'formEspacio']) !!}
 		    @foreach($espacios as $espacio)
 		  		<div class="row-fluid">
 			    	<div class="col-md-4 col-sm-6  col-xs-12  img-radio img-radio-espacios">
@@ -38,6 +37,5 @@
 
 		{!! Form::close() !!}
    </div>
-
 
 @stop

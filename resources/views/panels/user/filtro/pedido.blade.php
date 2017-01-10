@@ -54,8 +54,8 @@
 	<div class="row">
 		@foreach (Auth::user()->fotosRefUser as $referente)
 			<div class="col-md-3 col-xs-12 col-sm-6">
-			  <a href="{{asset('uploads/referentes/'.Auth::user()->id.'/'.$referente->img)}}" data-lightbox="image-2" data-title="{{$referente->descripcion}}">
-				 <img width="150" src="{{asset('uploads/referentes/'.Auth::user()->id.'/'.$referente->img)}}">
+			  <a href="{{asset('uploads/referentes/'.Auth::user()->id.'/'.$referente->id.'/'.$referente->img)}}" data-lightbox="image-2" data-title="{{$referente->descripcion}}">
+				 <img width="150" src="{{asset('uploads/referentes/'.Auth::user()->id.'/'.$referente->id.'/'.$referente->img)}}">
 				</a>
 			</div>		
 		@endforeach

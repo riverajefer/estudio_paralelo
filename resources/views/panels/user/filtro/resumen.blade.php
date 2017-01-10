@@ -10,7 +10,7 @@
 <div class="espacio_v5"></div>
 <div class="page_resumen">		
 
-{!! Form::open(['action'=>'User\FiltroController@postResumen']) !!}
+{!! Form::open(['action'=>'User\PedidoController@postResumen']) !!}
 
       <table class="bordered highlight responsive-table">
         <thead>

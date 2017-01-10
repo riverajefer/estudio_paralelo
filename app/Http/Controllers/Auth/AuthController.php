@@ -5,6 +5,7 @@ use App\Logic\User\UserRepository;
 use Illuminate\Contracts\Auth\Guard;
 use App\Models\User;
 use App\Models\Social;
+use App\Models\Pedido;
 use App\Models\Role;
 use Input, Validator, Auth;
 use Laravel\Socialite\Facades\Socialite;
@@ -42,12 +43,23 @@ class AuthController extends Controller {
         {
             if( $this->auth->user()->hasRole('user'))
             {
-                return redirect()->route('user.seleccione_espacio');
+                $pedidos = $this->auth->user()->pedidos()->where('completo', '1')->orderBy('created_at', 'desc')->first();
+                if(empty($pedidos)){
+                    return redirect()->route('user.seleccione_espacio');
+                }else{
+                    return redirect()->route('user.pedidos');
+                }
+
             }
 
             if( $this->auth->user()->hasRole('administrator'))
             {
                 return redirect()->route('admin.home');
+            }
+
+            if( $this->auth->user()->hasRole('designer'))
+            {
+                return redirect()->route('designer.home');
             }
 
         }
@@ -186,8 +198,13 @@ class AuthController extends Controller {
 
         if( $this->auth->user()->hasRole('user'))
         {
-            return redirect()->route('user.seleccione_espacio');
-            return redirect()->route('user.home');
+            $pedidos = $this->auth->user()->pedidos()->where('completo', '1')->orderBy('created_at', 'desc')->first();
+            if(empty($pedidos)){
+                return redirect()->route('user.seleccione_espacio');
+            }else{
+                return redirect()->route('user.pedidos');
+            }
+
         }
 
         if( $this->auth->user()->hasRole('administrator'))

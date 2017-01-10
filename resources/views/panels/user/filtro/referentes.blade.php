@@ -11,7 +11,7 @@
 			Room designs start at just $299.
 	    </p>
 	    <p>&nbsp;</p>
-	    {!! Form::open(['action'=>'User\FiltroController@postReferentes', 'id'=>'formReferenteUSer']) !!}
+	    {!! Form::open(['action'=>'User\PedidoController@postReferentes', 'id'=>'formReferenteUSer']) !!}
 	    <div class="caja_ref">
 			@for ($i = 0; $i <= 4; $i++)
 			    @foreach($referentes as $referente)

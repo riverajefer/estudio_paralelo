@@ -13,7 +13,7 @@
 	    <img src="{{ asset('img/varios/Icons-15.png') }}">
 	    <br>
 
-	{!! Form::open(['action'=>'User\FiltroController@postSubirEspacios', 'files'=>true]) !!}
+	{!! Form::open(['action'=>'User\PedidoController@postSubirEspacios', 'files'=>true]) !!}
 		@if(Session::has('error'))
 			<p class="errors">{!! Session::get('error') !!}</p>
 		@endif

@@ -30,41 +30,35 @@ Route::get('/social/handle/{provider}',   ['as' => 'social.handle',   'uses' => 
 Route::group(['prefix' => 'user', 'middleware' => 'auth:user'], function()
 {
     Route::get('/', ['as' =>'user.home', 'uses' => 'UserController@getHome']);
-    Route::get('seleccione_espacio', ['as' => 'user.seleccione_espacio','uses' => 'User\FiltroController@setEspacio']);
-    Route::post('seleccione_espacio', ['as' => 'user.seleccione_espacio','uses' => 'User\FiltroController@postEspacio']);
+    Route::get('seleccione_espacio', ['as' => 'user.seleccione_espacio','uses' => 'User\PedidoController@setEspacio']);
+    Route::post('seleccione_espacio', ['as' => 'user.seleccione_espacio','uses' => 'User\PedidoController@postEspacio']);
 
-    Route::get('seleccione_estilo',  ['as' => 'user.seleccione_estilo','uses' => 'User\FiltroController@setEstilo']);
-    Route::post('seleccione_estilo',  ['as' => 'user.seleccione_estilo','uses' => 'User\FiltroController@postEstilo']);
+    Route::get('seleccione_estilo',  ['as' => 'user.seleccione_estilo','uses' => 'User\PedidoController@setEstilo']);
+    Route::post('seleccione_estilo',  ['as' => 'user.seleccione_estilo','uses' => 'User\PedidoController@postEstilo']);
 
-    Route::get('seleccione_color',   ['as' => 'user.seleccione_color','uses' => 'User\FiltroController@setColor']);
-    Route::post('seleccione_color',   ['as' => 'user.seleccione_color','uses' => 'User\FiltroController@postColor']);
+    Route::get('seleccione_color',   ['as' => 'user.seleccione_color','uses' => 'User\PedidoController@setColor']);
+    Route::post('seleccione_color',   ['as' => 'user.seleccione_color','uses' => 'User\PedidoController@postColor']);
 
-    Route::get('seleccione_referentes', ['as' => 'user.seleccione_referentes','uses' => 'User\FiltroController@setReferentes']);
-    Route::post('seleccione_referentes', ['as' => 'user.seleccione_referentes','uses' => 'User\FiltroController@postReferentes']);
+    Route::get('seleccione_referentes', ['as' => 'user.seleccione_referentes','uses' => 'User\PedidoController@setReferentes']);
+    Route::post('seleccione_referentes', ['as' => 'user.seleccione_referentes','uses' => 'User\PedidoController@postReferentes']);
 
-    Route::get('subir_referente', ['as' => 'user.subir_referente','uses' => 'User\FiltroController@setReferentesUser']);
-    Route::post('subir_referente', ['as' => 'user.post_subir_referente','uses' => 'User\FiltroController@postReferentesUser']);
+    Route::get('subir_referente', ['as' => 'user.subir_referente','uses' => 'User\PedidoController@setReferentesUser']);
+    Route::post('subir_referente', ['as' => 'user.post_subir_referente','uses' => 'User\PedidoController@postReferentesUser']);
 
-    Route::get('subir_espacios', ['as' => 'user.subir_espacios','uses' => 'User\FiltroController@setSubirEspacios']);
-    Route::post('subir_espacios', ['as' => 'user.post_subir_espacios','uses' => 'User\FiltroController@postSubirEspacios']);
+    Route::get('subir_espacios', ['as' => 'user.subir_espacios','uses' => 'User\PedidoController@setSubirEspacios']);
+    Route::post('subir_espacios', ['as' => 'user.post_subir_espacios','uses' => 'User\PedidoController@postSubirEspacios']);
 
-    Route::get('agendar', ['as' => 'user.agendar','uses' => 'User\FiltroController@setAgendar']);
-    Route::post('agendar', ['as' => 'user.post_agendar','uses' => 'User\FiltroController@postAgendar']);
+    Route::get('agendar', ['as' => 'user.agendar','uses' => 'User\PedidoController@setAgendar']);
+    Route::post('agendar', ['as' => 'user.post_agendar','uses' => 'User\PedidoController@postAgendar']);
 
-    Route::get('resumen', ['as' => 'user.resumen','uses' => 'User\FiltroController@setResumen']);
-    Route::post('resumen', ['as' => 'user.post_resumen','uses' => 'User\FiltroController@postResumen']);
+    Route::get('resumen', ['as' => 'user.resumen','uses' => 'User\PedidoController@setResumen']);
+    Route::post('resumen', ['as' => 'user.post_resumen','uses' => 'User\PedidoController@postResumen']);
+
+    Route::get('pedidos', ['as' => 'user.pedidos','uses' => 'User\PedidoController@index']);
+    Route::get('pedidos/{id}', ['as' => 'user.pedidos.id','uses' => 'User\PedidoController@show']);
 
     Route::get('nuevo_pedido', ['as' => 'user.nuevo_pedido','uses' => 'User\PedidoController@nuevoPedido']);
 
-    Route::resource('pedidos', 'User\PedidoController');
-
-    Route::get('test', function(){
-        $user = App\Models\User::find(11);
-        $sql = $user->referentes()->attach(1);
-        return $sql;
-
-       return "test";
-    });
 
 });
 
@@ -81,8 +75,30 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:administrator'], functi
     Route::resource('espacios', 'Admin\EspacioController');
     Route::resource('colors', 'Admin\ColorController');
     Route::resource('paquetes', 'Admin\PaqueteController');
-    
+
+    Route::get('gestion_pedidos', ['uses' => 'Admin\GestionPedidosController@index']);
+    Route::get('pedidos/{id}', ['as' => 'user.pedidos.id','uses' => 'User\PedidoController@show']);
+
 });
+
+
+/*
+|--------------------------------------------------------------------------
+| DESIGNER (DISEÑADOR)
+|--------------------------------------------------------------------------
+*/
+Route::group(['prefix' => 'designer', 'middleware' => 'auth:designer'], function()
+{
+    Route::get('/', ['as' => 'designer.home', 'uses' => 'Designer\DesignerController@getHome']);
+});
+
+
+
+Route::get('test', function(){
+
+    return "test";
+});
+
 
 
 

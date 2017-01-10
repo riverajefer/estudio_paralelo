@@ -12,7 +12,7 @@
 			Room designs start at just $299.
 	    </p>
 	    <p>&nbsp;</p>
-		{!! Form::open(['action'=>'User\FiltroController@postColor', 'id'=>'formColor']) !!}
+		{!! Form::open(['action'=>'User\PedidoController@postColor', 'id'=>'formColor']) !!}
 		  <div class="row">
 					@foreach($colores as $color)
 						<div class="col-md-4 col-sm-6 col-xs-12 img-radio">

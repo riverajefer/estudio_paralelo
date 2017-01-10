@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-12-2016 a las 04:08:09
+-- Tiempo de generación: 10-01-2017 a las 03:10:09
 -- Versión del servidor: 5.6.24
 -- Versión de PHP: 5.5.24
 
@@ -28,20 +28,23 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `agendar_cita` (
   `id` int(10) unsigned NOT NULL,
-  `filtro_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
+  `pedido_id` int(11) NOT NULL,
   `fecha` date NOT NULL,
   `observaciones` text COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `agendar_cita`
 --
 
-INSERT INTO `agendar_cita` (`id`, `filtro_id`, `user_id`, `fecha`, `observaciones`, `created_at`, `updated_at`) VALUES
-(6, 1, 0, '2016-12-14', 'gffhfgfg', '2016-12-12 22:52:58', '2016-12-12 22:52:58');
+INSERT INTO `agendar_cita` (`id`, `pedido_id`, `fecha`, `observaciones`, `created_at`, `updated_at`) VALUES
+(1, 2, '2017-01-28', 'Holaaa', '2017-01-06 23:35:07', '2017-01-07 00:02:55'),
+(2, 3, '2017-01-26', 'Pedido3', '2017-01-07 00:29:37', '2017-01-07 00:29:37'),
+(3, 4, '2017-01-28', 'Hola soy un nuvo user', '2017-01-07 00:59:30', '2017-01-07 00:59:30'),
+(4, 5, '2017-01-28', 'wwww', '2017-01-07 01:00:25', '2017-01-07 01:00:25'),
+(5, 6, '2017-01-20', 'ssd', '2017-01-07 01:04:34', '2017-01-07 01:04:34');
 
 -- --------------------------------------------------------
 
@@ -124,52 +127,29 @@ INSERT INTO `estilos` (`id`, `titulo`, `img`, `created_at`, `updated_at`, `delet
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `filtro`
+-- Estructura de tabla para la tabla `fotosespacios_pedido`
 --
 
-CREATE TABLE IF NOT EXISTS `filtro` (
+CREATE TABLE IF NOT EXISTS `fotosespacios_pedido` (
   `id` int(10) unsigned NOT NULL,
-  `paquete_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `espacio_id` int(11) NOT NULL,
-  `estilo_id` int(11) NOT NULL,
-  `color_id` int(11) NOT NULL,
-  `completo` tinyint(1) NOT NULL,
-  `estado` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Volcado de datos para la tabla `filtro`
---
-
-INSERT INTO `filtro` (`id`, `paquete_id`, `user_id`, `espacio_id`, `estilo_id`, `color_id`, `completo`, `estado`, `created_at`, `updated_at`) VALUES
-(1, 1, 11, 2, 2, 2, 1, 'ENVÍADO', '2016-08-03 22:56:18', '2016-12-13 07:13:46');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `fotosespacios_user`
---
-
-CREATE TABLE IF NOT EXISTS `fotosespacios_user` (
-  `id` int(10) unsigned NOT NULL,
-  `user_id` int(11) NOT NULL,
+  `pedido_id` int(11) NOT NULL,
   `espacio` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `img` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Volcado de datos para la tabla `fotosespacios_user`
+-- Volcado de datos para la tabla `fotosespacios_pedido`
 --
 
-INSERT INTO `fotosespacios_user` (`id`, `user_id`, `espacio`, `img`, `created_at`, `updated_at`) VALUES
-(6, 11, 'espacio1', 'espacio1.jpg', '2016-12-02 01:40:09', '2016-12-13 02:45:06'),
-(7, 11, 'espacio2', 'espacio2.jpg', '2016-12-02 01:40:09', '2016-12-02 01:42:34'),
-(8, 11, 'espacio3', 'espacio3.jpg', '2016-12-02 01:40:09', '2016-12-13 02:45:06');
+INSERT INTO `fotosespacios_pedido` (`id`, `pedido_id`, `espacio`, `img`, `created_at`, `updated_at`) VALUES
+(1, 2, 'espacio1', 'espacio1.jpg', '2017-01-06 23:29:18', '2017-01-06 23:30:10'),
+(2, 2, 'espacio2', 'espacio2.PNG', '2017-01-06 23:29:18', '2017-01-06 23:29:18'),
+(3, 3, 'espacio1', 'espacio1.png', '2017-01-07 00:29:26', '2017-01-07 00:29:26'),
+(4, 3, 'espacio2', 'espacio2.PNG', '2017-01-07 00:29:26', '2017-01-07 00:29:26'),
+(5, 4, 'espacio1', 'espacio1.jpg', '2017-01-07 00:59:18', '2017-01-07 00:59:18'),
+(6, 4, 'espacio2', 'espacio2.png', '2017-01-07 00:59:18', '2017-01-07 00:59:18');
 
 -- --------------------------------------------------------
 
@@ -255,6 +235,37 @@ INSERT INTO `password_resets` (`id`, `email`, `token`, `created_at`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `pedidos`
+--
+
+CREATE TABLE IF NOT EXISTS `pedidos` (
+  `id` int(10) unsigned NOT NULL,
+  `paquete_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `espacio_id` int(11) NOT NULL,
+  `estilo_id` int(11) NOT NULL,
+  `color_id` int(11) NOT NULL,
+  `completo` tinyint(1) NOT NULL,
+  `estado` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `pedidos`
+--
+
+INSERT INTO `pedidos` (`id`, `paquete_id`, `user_id`, `espacio_id`, `estilo_id`, `color_id`, `completo`, `estado`, `created_at`, `updated_at`) VALUES
+(1, 1, 11, 6, 0, 0, 0, 'Sin envíar', '2017-01-06 23:04:00', '2017-01-06 23:04:08'),
+(2, 1, 11, 2, 2, 2, 1, 'ENVÍADO', '2017-01-06 23:04:29', '2017-01-07 00:04:23'),
+(3, 1, 11, 5, 2, 2, 1, 'ENVÍADO', '2017-01-07 00:28:53', '2017-01-07 00:29:41'),
+(6, 1, 4, 6, 2, 1, 1, 'ENVÍADO', '2017-01-07 01:03:39', '2017-01-07 01:04:36'),
+(7, 0, 12, 0, 0, 0, 0, '', '2017-01-07 01:12:20', '2017-01-07 01:12:20'),
+(8, 0, 6, 0, 0, 0, 0, '', '2017-01-07 02:55:41', '2017-01-07 02:55:41');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `referentes`
 --
 
@@ -281,24 +292,32 @@ INSERT INTO `referentes` (`id`, `espacio_id`, `estilo_id`, `img`, `descripcion`,
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `referente_user`
+-- Estructura de tabla para la tabla `referente_pedido`
 --
 
-CREATE TABLE IF NOT EXISTS `referente_user` (
+CREATE TABLE IF NOT EXISTS `referente_pedido` (
   `id` int(10) unsigned NOT NULL,
-  `user_id` int(11) NOT NULL,
+  `pedido_id` int(11) NOT NULL,
   `referente_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Volcado de datos para la tabla `referente_user`
+-- Volcado de datos para la tabla `referente_pedido`
 --
 
-INSERT INTO `referente_user` (`id`, `user_id`, `referente_id`, `created_at`, `updated_at`) VALUES
-(21, 11, 2, '2016-12-13 02:53:30', '2016-12-13 02:53:30'),
-(22, 11, 1, '2016-12-13 07:13:12', '2016-12-13 07:13:12');
+INSERT INTO `referente_pedido` (`id`, `pedido_id`, `referente_id`, `created_at`, `updated_at`) VALUES
+(5, 2, 3, '2017-01-07 00:01:18', '2017-01-07 00:01:18'),
+(6, 2, 4, '2017-01-07 00:01:18', '2017-01-07 00:01:18'),
+(7, 3, 2, '2017-01-07 00:29:14', '2017-01-07 00:29:14'),
+(8, 3, 3, '2017-01-07 00:29:14', '2017-01-07 00:29:14'),
+(9, 4, 2, '2017-01-07 00:59:04', '2017-01-07 00:59:04'),
+(10, 4, 3, '2017-01-07 00:59:04', '2017-01-07 00:59:04'),
+(11, 4, 4, '2017-01-07 00:59:04', '2017-01-07 00:59:04'),
+(12, 5, 2, '2017-01-07 01:00:15', '2017-01-07 01:00:15'),
+(13, 5, 3, '2017-01-07 01:00:15', '2017-01-07 01:00:15'),
+(14, 6, 4, '2017-01-07 01:04:26', '2017-01-07 01:04:26');
 
 -- --------------------------------------------------------
 
@@ -311,7 +330,7 @@ CREATE TABLE IF NOT EXISTS `roles` (
   `name` text COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `roles`
@@ -319,7 +338,8 @@ CREATE TABLE IF NOT EXISTS `roles` (
 
 INSERT INTO `roles` (`id`, `name`, `created_at`, `updated_at`) VALUES
 (1, 'user', '2016-06-15 03:09:47', '2016-06-15 03:09:47'),
-(2, 'administrator', '2016-06-15 03:09:47', '2016-06-15 03:09:47');
+(2, 'administrator', '2016-06-15 03:09:47', '2016-06-15 03:09:47'),
+(3, 'designer', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -333,7 +353,7 @@ CREATE TABLE IF NOT EXISTS `role_user` (
   `role_id` int(10) unsigned NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `role_user`
@@ -342,7 +362,8 @@ CREATE TABLE IF NOT EXISTS `role_user` (
 INSERT INTO `role_user` (`id`, `user_id`, `role_id`, `created_at`, `updated_at`) VALUES
 (4, 4, 1, '2016-06-15 03:36:35', '2016-06-15 03:36:35'),
 (6, 6, 2, '2016-07-11 04:25:59', '2016-07-11 04:25:59'),
-(11, 11, 1, '2016-07-25 22:07:28', '2016-07-25 22:07:28');
+(11, 11, 1, '2016-07-25 22:07:28', '2016-07-25 22:07:28'),
+(12, 12, 3, '2017-01-07 01:12:20', '2017-01-07 01:12:20');
 
 -- --------------------------------------------------------
 
@@ -379,21 +400,21 @@ CREATE TABLE IF NOT EXISTS `users` (
   `last_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `tel` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `filtro` int(11) NOT NULL,
   `password` varchar(60) COLLATE utf8_unicode_ci DEFAULT NULL,
   `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `users` (`id`, `first_name`, `last_name`, `tel`, `email`, `filtro`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(4, 'Jeferson', 'Rivera', '', 'jefersonpatino@yahoo.es', 0, NULL, '1BtN6nYVeJuJnsF4cqYXwjJiicyLgB31jbRnmzjV2CET4lZbATfbLW6uxAdB', '2016-06-15 03:36:35', '2016-07-15 22:06:34'),
-(6, 'Jefferson', 'Rivera', '', 'riverajefer@gmail.com', 0, '$2y$10$4iSqnXP3eGsWq0znPnJcS.PapBb8jxg2kJMsyN4v19CA8AZmzhOxC', 'RIS3KmqN9L6s4oXFCCgXkx6XgN0tsqOtu2oWGMCiMmNxZaPeWSmOnxglz3wV', '2016-07-11 04:25:59', '2016-11-24 06:30:48'),
-(11, 'Juan', 'Doe', '32323787', 'jrivera@bancoink.com', 0, '$2y$10$wPgsTEIeHauoDGaE70PJsOV5zZRDcpzmiicIguAEEZamuR2og8FHm', 'yDmk26sgc7z1pcS5pZ3GqFKGMnUpJJ0nrgNEPy91mwuKMWVaoVuJ6BM02Oeo', '2016-07-25 22:07:28', '2016-12-01 22:29:24');
+INSERT INTO `users` (`id`, `first_name`, `last_name`, `tel`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(4, 'Jeferson', 'Rivera', '', 'jefersonpatino@yahoo.es', NULL, 'AKBXAttNbZcLocc4BQW9XvvMxTqyfhVMsjUwbkFtiywVfzLq3r2lt4PBiM8f', '2016-06-15 03:36:35', '2017-01-07 01:09:11'),
+(6, 'Jefferson', 'Rivera', '', 'riverajefer@gmail.com', '$2y$10$4iSqnXP3eGsWq0znPnJcS.PapBb8jxg2kJMsyN4v19CA8AZmzhOxC', 'jz3lOft86LmhPAK2zPzMefYkc24Hpeu32sVJHev5FVfXy4DfptYZYSjXEFXO', '2016-07-11 04:25:59', '2017-01-07 01:11:06'),
+(11, 'Juan', 'Doe', '32323787', 'jrivera@bancoink.com', '$2y$10$wPgsTEIeHauoDGaE70PJsOV5zZRDcpzmiicIguAEEZamuR2og8FHm', 'A1BFy7SubxUaIXRmqi3xJZZBbFCDtaRDeUEyh9yUi4kYiBQisVY2JKTHPYi7', '2016-07-25 22:07:28', '2017-01-07 01:38:27'),
+(12, 'Daniela', 'Ruiz', '3645653', 'dr@gmail.com', '$2y$10$u.kb35KSFOgQqUS2DovYquVRMV/627c0e8bP1ZV/88hSExMuFjhvO', 'H2eysF5au87GA2o5lr2Outap2C0twrmReTEbpXmcD6MYROILOxLb4ehan1MP', '2017-01-07 01:12:20', '2017-01-07 01:36:30');
 
 --
 -- Índices para tablas volcadas
@@ -424,15 +445,9 @@ ALTER TABLE `estilos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `filtro`
+-- Indices de la tabla `fotosespacios_pedido`
 --
-ALTER TABLE `filtro`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `fotosespacios_user`
---
-ALTER TABLE `fotosespacios_user`
+ALTER TABLE `fotosespacios_pedido`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -448,15 +463,21 @@ ALTER TABLE `password_resets`
   ADD PRIMARY KEY (`id`), ADD KEY `password_resets_email_index` (`email`), ADD KEY `password_resets_token_index` (`token`);
 
 --
+-- Indices de la tabla `pedidos`
+--
+ALTER TABLE `pedidos`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `referentes`
 --
 ALTER TABLE `referentes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `referente_user`
+-- Indices de la tabla `referente_pedido`
 --
-ALTER TABLE `referente_user`
+ALTER TABLE `referente_pedido`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -491,7 +512,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `agendar_cita`
 --
 ALTER TABLE `agendar_cita`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT de la tabla `colors`
 --
@@ -508,15 +529,10 @@ ALTER TABLE `espacios`
 ALTER TABLE `estilos`
   MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
--- AUTO_INCREMENT de la tabla `filtro`
+-- AUTO_INCREMENT de la tabla `fotosespacios_pedido`
 --
-ALTER TABLE `filtro`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT de la tabla `fotosespacios_user`
---
-ALTER TABLE `fotosespacios_user`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+ALTER TABLE `fotosespacios_pedido`
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT de la tabla `paquetes`
 --
@@ -528,25 +544,30 @@ ALTER TABLE `paquetes`
 ALTER TABLE `password_resets`
   MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
+-- AUTO_INCREMENT de la tabla `pedidos`
+--
+ALTER TABLE `pedidos`
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+--
 -- AUTO_INCREMENT de la tabla `referentes`
 --
 ALTER TABLE `referentes`
   MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
--- AUTO_INCREMENT de la tabla `referente_user`
+-- AUTO_INCREMENT de la tabla `referente_pedido`
 --
-ALTER TABLE `referente_user`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=23;
+ALTER TABLE `referente_pedido`
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT de la tabla `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `role_user`
 --
 ALTER TABLE `role_user`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT de la tabla `social_logins`
 --
@@ -556,7 +577,7 @@ ALTER TABLE `social_logins`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
 -- Restricciones para tablas volcadas
 --
