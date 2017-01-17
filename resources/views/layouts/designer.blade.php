@@ -10,26 +10,26 @@
     <link href='https://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <title>Admin</title>
+    <title>Designer</title>
     <!-- Incluye  estilos -->
-    @include('includes/admin/estilos')
+    @include('includes/designer/estilos')
     @yield('head')
 </head>
 <body>
 
-<!-- Menú Admin -->
-@include('includes/admin/menu')
+<!-- Menú Designer -->
+@include('includes/designer/menu')
 
-<!-- Contenido Admin -->
+<!-- Contenido Designer -->
 <div class="container">
     @yield('content')
 </div>
-<!-- Fin Contenido Admin -->
+<!-- Fin Contenido Designer -->
 
 <!-- Scripts main -->
 @include('includes/main/scripts')
-<!-- Scripts admin -->
-@include('includes/admin/scripts')
+<!-- Scripts Designer -->
+@include('includes/designer/scripts')
 
 <!-- Footer -->
 @yield('footer')

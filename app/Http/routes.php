@@ -79,6 +79,19 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:administrator'], functi
     Route::get('gestion_pedidos', ['uses' => 'Admin\GestionPedidosController@index']);
     Route::get('pedidos/{id}', ['as' => 'user.pedidos.id','uses' => 'User\PedidoController@show']);
 
+    Route::get('lista_designers', function(){
+
+        $lista_designers = [];
+        $RolUser = App\Models\RoleUser::Where('role_id', 3)->get();
+
+        foreach ($RolUser as $Ruser) {
+            $lista_designers[] = $Ruser->users;
+        }
+        return $lista_designers;
+
+
+    });
+
 });
 
 

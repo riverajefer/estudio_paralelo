@@ -8,6 +8,8 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
     <link href='https://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <title>Innenhaus</title>
 
     <!-- CSS Main -->

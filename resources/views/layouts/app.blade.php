@@ -13,7 +13,12 @@
     @yield('head')
     @include('includes/main/estilos')
     @include('includes/admin/estilos')
-    
+    <!-- Scripts main -->
+    @include('includes/main/scripts')
+    <!-- Scripts admin -->
+    @include('includes/admin/scripts')
+
+
 </head>
 <body>
 
@@ -26,10 +31,6 @@
 </div>
 <!-- Fin Contenido Admin -->
 
-<!-- Scripts main -->
-@include('includes/main/scripts')
-<!-- Scripts admin -->
-@include('includes/admin/scripts')
 
 <!-- Footer -->
 @yield('footer')

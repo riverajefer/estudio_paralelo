@@ -18,14 +18,24 @@
                 <li><a href="#">NOSOTROS</a></li>
                 <li><a href="#">PROYECTOS</a></li>
                 <li><a href="#">REGALA UN PAQUETE</a></li>
-                <li><a href="#">MI LISTA</a></li>
                 
                 @if(!Auth::check())
                     <li><a href="{{ route('auth.login') }}">ACCEDER</a></li>
                     <li><a href="{{ route('auth.register') }}">REGISTRARSE</a></li>
                 @else
+                    
                     <li><a href="#">{{ strtoupper(Auth::user()->first_name) }}</a></li>
-                    <li><a href="{{ route('authenticated.logout') }}">SALIR </a></li>
+                    
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            {{ strtoupper(Auth::user()->first_name) }} {{ strtoupper(Auth::user()->last_name) }} 
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{URL::to('user/pedidos')}}">MI LISTA</a></li>
+                            <li><a href="{{ route('authenticated.logout') }}">SALIR </a></li>
+                            <li><a href="#">MI PERFIL</a></li>
+                        </ul>
+                    </li>
                 @endif
             </ul>
         </div><!--/.nav-collapse -->

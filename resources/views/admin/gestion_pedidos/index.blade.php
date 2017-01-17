@@ -8,7 +8,6 @@
 		<div class="espacio_v5"></div>
 	</div>
 
-
 <div class="page_pedido">		
       <table class="bordered highlight responsive-table">
         <thead>
@@ -17,13 +16,12 @@
               <th data-field="paquete">PAQUETE</th>
               <th data-field="espacio">ESPACIO</th>
               <th data-field="estilo">ESTILO</th>
-			  <th data-field="color">COLOR</th>
+			        <th data-field="color">COLOR</th>
               <th data-field="cita">FECHA DE CITA</th>
               <th data-field="total">TOTAL</th>
               <th data-field="estado">ESTADO</th>
               <th data-field="det">DETALLES</th>
               <th data-field="asig">ASIGNAR A UN DISEÑADOR</th>
-              
           </tr>
         </thead>
         <tbody>
@@ -41,13 +39,77 @@
                 <a href="{{URL::to('admin/pedidos/'.$pedido->id)}}">VER</a>
             </td>
             <td>
-             Asignar
+             <a href="#" data-toggle="modal" data-target="#exampleModal" data-usuario="{{$pedido->user->first_name}} {{$pedido->user->last_name}}" data-userid="{{$pedido->user->id}}">
+                Asignar
+             </a>
             </td> 
           </tr>
         @endforeach
         </tbody>
       </table>
 
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">New message</h4>
+      </div>
+      <div class="modal-body">
+        <h4>Lista de diseñadores</h4>
+        <form id="form_asignar">
+          <ul class="lista">
+          </ul>
+          <input type="submit" class="btn btn-success" value="Aceptar">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
 </div>
+
+</div>
+<script>
+
+
+$('#exampleModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var usuario = button.data('usuario') // Extract info from data-* attributes
+  var user_id = button.data('userid') 
+  
+  var modal = $(this)
+  modal.find('.modal-title').text('Asignar un diseñador para ' + usuario)
+
+  $.get( "lista_designers", function( data ) {
+    console.log("data: ", data);
+
+    $.each(data, function (index, value) {
+      console.log("index: ",index);
+ 
+      console.log("data: ",value);
+      var radio = '<input name="optDesigner" required type="radio" id="des'+index+'"  /><label for="des'+index+'">'+value.first_name + ' ' + value.last_name+'</label>';
+      $(".lista").append('<li> '+ radio +'</li>');
+    });
+  });
+
+  $('#exampleModal').on('hidden.bs.modal', function (e) {
+    console.log("Close modal");
+    $(".lista").empty();
+  });
+
+  $('#form_asignar').submit(function(e){
+    console.log( $( this ).serialize() );
+    console.log("submit form");
+    return false;
+    e.preventdefault()
+  });
+
+
+})
+
+
+</script>
+
 
 @endsection
