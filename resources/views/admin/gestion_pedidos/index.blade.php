@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>Gestión de Pedidos</h1>
 	<div class="panel_espacio">
 	    <h1>Lista de pedidos</h1>
 	    <p></p>
@@ -53,13 +52,16 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="exampleModalLabel">New message</h4>
+        <h4 class="modal-title" id="exampleModalLabel">Asignar un diseñador para  <span></span> </h4>
       </div>
       <div class="modal-body">
         <h4>Lista de diseñadores</h4>
+        <br>
         <form id="form_asignar">
           <ul class="lista">
           </ul>
+          <br>
+          <p class="errors" style="display:none">Seleccione un diseñador</p> 
           <input type="submit" class="btn btn-success" value="Aceptar">
           <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
         </form>
@@ -79,7 +81,7 @@ $('#exampleModal').on('show.bs.modal', function (event) {
   var user_id = button.data('userid') 
   
   var modal = $(this)
-  modal.find('.modal-title').text('Asignar un diseñador para ' + usuario)
+  modal.find('.modal-title span').text(usuario)
 
   $.get( "lista_designers", function( data ) {
     console.log("data: ", data);
@@ -88,7 +90,7 @@ $('#exampleModal').on('show.bs.modal', function (event) {
       console.log("index: ",index);
  
       console.log("data: ",value);
-      var radio = '<input name="optDesigner" required type="radio" id="des'+index+'"  /><label for="des'+index+'">'+value.first_name + ' ' + value.last_name+'</label>';
+      var radio = '<input name="optDesigner" type="radio" id="des'+index+'"  /><label for="des'+index+'">'+value.first_name + ' ' + value.last_name+'</label>';
       $(".lista").append('<li> '+ radio +'</li>');
     });
   });
@@ -101,8 +103,19 @@ $('#exampleModal').on('show.bs.modal', function (event) {
   $('#form_asignar').submit(function(e){
     console.log( $( this ).serialize() );
     console.log("submit form");
+    if($('input[name=optDesigner]:checked').length<=0)
+    {
+      $(".errors").fadeIn("slow");
+    }else{
+      $(".errors").hide();
+    }
+   
     return false;
     e.preventdefault()
+
+
+
+
   });
 
 

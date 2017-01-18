@@ -510,6 +510,7 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
   background-color: transparent;
 }
 .errors{
+  margin: 10px 0px;
   color: #F6807C !important;
 }
 
@@ -781,6 +782,10 @@ nav ul a {
 [type="radio"]:not(:checked)+label, [type="radio"]:checked+label{
   font-size: 2rem !important;
 }
+.modal-title span{
+  font-weight: bold;
+}
+
 
 
 

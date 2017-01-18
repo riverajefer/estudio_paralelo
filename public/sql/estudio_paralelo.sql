@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-01-2017 a las 03:10:09
+-- Tiempo de generación: 18-01-2017 a las 03:12:40
 -- Versión del servidor: 5.6.24
 -- Versión de PHP: 5.5.24
 
@@ -69,6 +69,20 @@ INSERT INTO `colors` (`id`, `titulo`, `img`, `created_at`, `updated_at`, `delete
 (1, 'Calido', 'calido.png', '2016-07-26 04:24:40', '2016-07-26 04:24:40', NULL),
 (2, 'Neutro', 'neutro.png', '2016-07-26 04:24:50', '2016-07-26 04:24:50', NULL),
 (3, 'Frio', 'frio.png', '2016-07-26 04:25:00', '2016-07-26 04:25:00', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `designer_users`
+--
+
+CREATE TABLE IF NOT EXISTS `designer_users` (
+  `id` int(10) unsigned NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `designer_id` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -185,7 +199,8 @@ INSERT INTO `migrations` (`migration`, `batch`) VALUES
 ('2016_08_03_200557_create_table_referente_user', 11),
 ('2016_12_01_171544_create_fotosEspacios_user_table', 12),
 ('2016_12_01_210241_create_agendar_cita_table', 13),
-('2016_12_12_011915_create_paquetes_table', 14);
+('2016_12_12_011915_create_paquetes_table', 14),
+('2017_01_18_020055_create_designer_users_table', 15);
 
 -- --------------------------------------------------------
 
@@ -413,8 +428,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `tel`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (4, 'Jeferson', 'Rivera', '', 'jefersonpatino@yahoo.es', NULL, 'AKBXAttNbZcLocc4BQW9XvvMxTqyfhVMsjUwbkFtiywVfzLq3r2lt4PBiM8f', '2016-06-15 03:36:35', '2017-01-07 01:09:11'),
 (6, 'Jefferson', 'Rivera', '', 'riverajefer@gmail.com', '$2y$10$4iSqnXP3eGsWq0znPnJcS.PapBb8jxg2kJMsyN4v19CA8AZmzhOxC', 'jz3lOft86LmhPAK2zPzMefYkc24Hpeu32sVJHev5FVfXy4DfptYZYSjXEFXO', '2016-07-11 04:25:59', '2017-01-07 01:11:06'),
-(11, 'Juan', 'Doe', '32323787', 'jrivera@bancoink.com', '$2y$10$wPgsTEIeHauoDGaE70PJsOV5zZRDcpzmiicIguAEEZamuR2og8FHm', 'A1BFy7SubxUaIXRmqi3xJZZBbFCDtaRDeUEyh9yUi4kYiBQisVY2JKTHPYi7', '2016-07-25 22:07:28', '2017-01-07 01:38:27'),
-(12, 'Daniela', 'Ruiz', '3645653', 'dr@gmail.com', '$2y$10$u.kb35KSFOgQqUS2DovYquVRMV/627c0e8bP1ZV/88hSExMuFjhvO', 'H2eysF5au87GA2o5lr2Outap2C0twrmReTEbpXmcD6MYROILOxLb4ehan1MP', '2017-01-07 01:12:20', '2017-01-07 01:36:30');
+(11, 'Juan', 'Doe', '32323787', 'jrivera@gmail.com', '$2y$10$wPgsTEIeHauoDGaE70PJsOV5zZRDcpzmiicIguAEEZamuR2og8FHm', 'A1BFy7SubxUaIXRmqi3xJZZBbFCDtaRDeUEyh9yUi4kYiBQisVY2JKTHPYi7', '2016-07-25 22:07:28', '2017-01-07 01:38:27'),
+(12, 'Daniela', 'Ruiz', '3645653', 'dr@gmail.com', '$2y$10$u.kb35KSFOgQqUS2DovYquVRMV/627c0e8bP1ZV/88hSExMuFjhvO', 'OjoGMIplsylmKFDyBfe9lMO5ltelSHVyZNxffqpYX1pFGbw6M7WFxgTDo3Pl', '2017-01-07 01:12:20', '2017-01-17 06:14:35');
 
 --
 -- Índices para tablas volcadas
@@ -430,6 +445,12 @@ ALTER TABLE `agendar_cita`
 -- Indices de la tabla `colors`
 --
 ALTER TABLE `colors`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `designer_users`
+--
+ALTER TABLE `designer_users`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -518,6 +539,11 @@ ALTER TABLE `agendar_cita`
 --
 ALTER TABLE `colors`
   MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT de la tabla `designer_users`
+--
+ALTER TABLE `designer_users`
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `espacios`
 --
