@@ -36,14 +36,21 @@ Luego mirar el Board
 
 
 Usuario
+
 jrivera@gmail.com 
+pw: 320542
 
 
 Diseñador
+
 dr@gmail.com 
+pw: 320542
 
 Aaministrador
+
 riverajefer@gmail.com
+pw: 320542
+
 
 
 No hover en botones
