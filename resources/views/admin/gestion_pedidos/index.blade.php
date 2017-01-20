@@ -1,4 +1,5 @@
 @extends('layouts.app')
+<meta name="csrf-token" content="{{ csrf_token() }}" />
 
 @section('content')
 	<div class="panel_espacio">
@@ -46,6 +47,7 @@
         @endforeach
         </tbody>
       </table>
+      <?php echo $pedidos->render(); ?>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
   <div class="modal-dialog" role="document">
@@ -57,15 +59,15 @@
       <div class="modal-body">
         <h4>Lista de diseñadores</h4>
         <br>
-        <form id="form_asignar">
+        {!! Form::open(array('id' =>'form_asignar')) !!}
           <ul class="lista">
           </ul>
           <br>
           <p class="errors" style="display:none">Seleccione un diseñador</p> 
           <input type="submit" class="btn btn-success" value="Aceptar">
           <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-        </form>
-
+          <input type="hidden" name="_token" value="{!! csrf_token() !!}">
+        {!! Form::close() !!}
       </div>
     </div>
   </div>
@@ -73,6 +75,12 @@
 
 </div>
 <script>
+$.ajaxSetup({
+    headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+});
+
 
 
 $('#exampleModal').on('show.bs.modal', function (event) {
@@ -101,20 +109,30 @@ $('#exampleModal').on('show.bs.modal', function (event) {
   });
 
   $('#form_asignar').submit(function(e){
-    console.log( $( this ).serialize() );
-    console.log("submit form");
+
     if($('input[name=optDesigner]:checked').length<=0)
     {
       $(".errors").fadeIn("slow");
     }else{
       $(".errors").hide();
+
+      var form = $(this);
+      var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
+      $.ajax({
+        url: "gestion_pedidos/asignar_designer",
+        dataType: "json",
+        type: "POST",
+        data: {_token: CSRF_TOKEN},
+        success: function (data) {
+          console.log("retorno: ",data)
+        }
+      });
+
     }
    
     return false;
     e.preventdefault()
-
-
-
 
   });
 

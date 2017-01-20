@@ -77,7 +77,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:administrator'], functi
     Route::resource('paquetes', 'Admin\PaqueteController');
 
     Route::get('gestion_pedidos', ['uses' => 'Admin\GestionPedidosController@index']);
-    Route::get('pedidos/{id}', ['as' => 'user.pedidos.id','uses' => 'User\PedidoController@show']);
+    Route::get('pedidos/{id}', ['as' => 'admin.pedidos.id','uses' => 'User\PedidoController@show']);
+    Route::post('gestion_pedidos/asignar_designer', ['as' => 'admin.pedidos.asignar','uses' => 'Admin\GestionPedidosController@asignar']);
+    
 
     Route::get('lista_designers', function(){
 
