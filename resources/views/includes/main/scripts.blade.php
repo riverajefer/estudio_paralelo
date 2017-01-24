@@ -3,4 +3,5 @@
 	<script src="{{asset('js/ie10-viewport-bug-workaround.js')}}"></script>
 	<script src="{{asset('js/materialize.min.js')}}"></script>
 	<script src="{{asset('plugins/lightbox2/js/lightbox.min.js')}}"></script>
+    <script src="{{asset('js/config.js')}}"></script>
 	
