@@ -12,13 +12,11 @@
       <table class="bordered highlight responsive-table">
         <thead>
           <tr>
+              <th data-field="id">ID PEDIDO</th>
               <th data-field="user">USUARIO</th>
               <th data-field="paquete">PAQUETE</th>
               <th data-field="espacio">ESPACIO</th>
-              <th data-field="estilo">ESTILO</th>
-			        <th data-field="color">COLOR</th>
               <th data-field="cita">FECHA DE CITA</th>
-              <th data-field="total">TOTAL</th>
               <th data-field="estado">ESTADO</th>
               <th data-field="det">DETALLES</th>
               <th data-field="asig">ASIGNAR A UN DISEÑADOR</th>
@@ -27,19 +25,17 @@
         <tbody>
         @foreach($pedidos as $pedido)
           <tr>
+            <td>INNEN-{{$pedido->id}}</td>
             <td>{{$pedido->user->first_name}} {{$pedido->user->last_name}}</td>
             <td>{{$pedido->paquete->titulo}}</td>
             <td>{{$pedido->espacio->titulo}}</td>
-            <td>{{$pedido->estilo->titulo}}</td>
-            <td>{{$pedido->color->titulo}}</td>
             <td>{{$pedido->AgendarCita->fecha}}</td>	
-            <td>$ {{$pedido->paquete->valor}}</td>						
             <td>{{$pedido->estado}}</td>
             <td>
                 <a href="{{URL::to('admin/pedidos/'.$pedido->id)}}">VER</a>
             </td>
             <td>
-             <a href="#" data-toggle="modal" data-target="#exampleModal" data-usuario="{{$pedido->user->first_name}} {{$pedido->user->last_name}}" data-userid="{{$pedido->user->id}}">
+             <a href="#" data-toggle="modal" data-target="#exampleModal" data-pedido="{{$pedido->id}}"  data-usuario="{{$pedido->user->first_name}} {{$pedido->user->last_name}}" data-userid="{{$pedido->user->id}}">
                 Asignar
              </a>
             </td> 
@@ -54,7 +50,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="exampleModalLabel">Asignar un diseñador para  <span></span> </h4>
+        <h4 class="modal-title" id="exampleModalLabel">Asignar un diseñador para el usuario  <span></span> </h4>
       </div>
       <div class="modal-body">
         <h4>Lista de diseñadores</h4>
@@ -82,12 +78,13 @@ $.ajaxSetup({
 });
 
 
-
-
 $('#exampleModal').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget) // Button that triggered the modal
   var usuario = button.data('usuario') // Extract info from data-* attributes
   var user_id = button.data('userid') 
+  var pedido_id = button.data('pedido') 
+  
+  console.log("user_id: ", user_id);
   
   var modal = $(this)
   modal.find('.modal-title span').text(usuario)
@@ -99,7 +96,7 @@ $('#exampleModal').on('show.bs.modal', function (event) {
       console.log("index: ",index);
  
       console.log("data: ",value);
-      var radio = '<input name="optDesigner" type="radio" id="des'+index+'"  /><label for="des'+index+'">'+value.first_name + ' ' + value.last_name+'</label>';
+      var radio = '<input name="optDesigner" type="radio" id="des'+index+'" value="'+value.id+'"  /><label for="des'+index+'">'+value.first_name + ' ' + value.last_name+'</label>';
       $(".lista").append('<li> '+ radio +'</li>');
     });
   });
@@ -117,14 +114,13 @@ $('#exampleModal').on('show.bs.modal', function (event) {
     }else{
       $(".errors").hide();
 
-      var form = $(this);
+      var optDesigner = $('input[name=optDesigner]:checked').val();
       var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
 
       $.ajax({
         url: "gestion_pedidos/asignar_designer",
-        dataType: "json",
         type: "POST",
-        data: {_token: CSRF_TOKEN},
+        data: {_token: CSRF_TOKEN, user_id: user_id, optDesigner: optDesigner, pedido_id:pedido_id },
         success: function (data) {
           console.log("retorno: ",data)
         }
