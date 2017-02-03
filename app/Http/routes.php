@@ -91,7 +91,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:administrator'], functi
         }
         return $lista_designers;
 
-
     });
 
 });
@@ -111,7 +110,15 @@ Route::group(['prefix' => 'designer', 'middleware' => 'auth:designer'], function
 
 Route::get('test', function(){
 
-    return "test";
+    //return  App\Models\Pedido::find(2);
+    //return  App\Models\Pedido::find(2)->designerPedido()->get();
+    //return  App\Models\DesignerPedido::find(1)->user()->get();
+    $p = App\Models\Pedido::find(2);
+    //return  $p;
+    $dp = $p->designerPedido()->get();
+    return $dp;
+    //return  $p()->designerPedido()->user()->get();
+    
 });
 
 
@@ -137,5 +144,6 @@ Route::group(['prefix' => 'api', 'namespace' => 'API'], function () {
 
 
 Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+
 
 

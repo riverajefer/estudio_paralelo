@@ -120,7 +120,7 @@ $('#exampleModal').on('show.bs.modal', function (event) {
       $.ajax({
         url: "gestion_pedidos/asignar_designer",
         type: "POST",
-        data: {_token: CSRF_TOKEN, user_id: user_id, optDesigner: optDesigner, pedido_id:pedido_id },
+        data: {_token: CSRF_TOKEN, optDesigner: optDesigner,  pedido_id:pedido_id },
         success: function (data) {
           console.log("retorno: ",data)
         }

@@ -40,6 +40,10 @@ class Pedido extends Model
         return $this->hasOne('App\Models\AgendarCita', 'pedido_id', 'id');
     }
 
+    public function designerPedido(){
+        return $this->hasOne('App\Models\DesignerPedido');
+    }
+
 
 
 
